@@ -78,41 +78,42 @@ export function WeldingTraining() {
         description="Professional welder training at Eurotech Mohali. Exclusive international partner of American Welding Society (AWS) Miami, USA. AWS, robotic welding, NDT Level-II."
       />
 
-      <section className="hero-center service-hero welding" aria-label="Welding training">
-        <div className="hero-visual-media" aria-hidden="true" />
-        <div className="hero-panel">
-          <p className="kicker">Educational partner · Est. 2008</p>
-          <h1>Professional welder training</h1>
-          <p className="hero-copy">
-            Exclusive International Partner of American Welding Society (AWS)
-            Miami, USA. Global training standards for high-demand engineering
-            careers.
-          </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#programs">
-              Our Certifications
-            </a>
-            <a className="btn btn-secondary" href="#enquire">
-              Enroll Now
-            </a>
+      <section className="hero-cover service-hero welding" aria-label="Welding training">
+        <div className="hero-cover-media" aria-hidden="true" />
+        <div className="hero-cover-inner">
+          <div className="hero-cover-copy">
+            <p className="kicker">Educational partner · Est. 2008</p>
+            <h1>Professional welder training</h1>
+            <p className="hero-copy">
+              Exclusive International Partner of American Welding Society (AWS)
+              Miami, USA. Global training standards for high-demand careers.
+            </p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#programs">
+                Our Certifications
+              </a>
+              <a className="btn btn-secondary" href="#enquire">
+                Enroll Now
+              </a>
+            </div>
           </div>
-          <div className="hero-facts" aria-label="Partner highlights">
-            <div>
-              <strong>AWS</strong>
-              <span>Miami, USA Partner</span>
-            </div>
-            <div>
-              <strong>15+</strong>
-              <span>Global Offices</span>
-            </div>
-            <div>
-              <strong>ASNT</strong>
-              <span>Level II Center</span>
-            </div>
-            <div>
-              <strong>Est. 2008</strong>
-              <span>Legacy of Excellence</span>
-            </div>
+        </div>
+        <div className="hero-rail" aria-label="Partner highlights">
+          <div>
+            <strong>AWS</strong>
+            <span>Miami, USA Partner</span>
+          </div>
+          <div>
+            <strong>15+</strong>
+            <span>Global Offices</span>
+          </div>
+          <div>
+            <strong>ASNT</strong>
+            <span>Level II Center</span>
+          </div>
+          <div>
+            <strong>Est. 2008</strong>
+            <span>Legacy of Excellence</span>
           </div>
         </div>
       </section>

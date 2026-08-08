@@ -13,44 +13,42 @@ export function Home() {
         description="Eurotech Assessment and Certification Services — vocational training and certification in robotic welding, CE marking, plumbing, and AWS welding courses."
       />
 
-      <section className="hero-center" aria-label="Eurotech introduction">
-        <div className="hero-visual-media" aria-hidden="true" />
-        <div className="hero-panel">
-          <p className="kicker">Training &amp; Certification</p>
-          <h1>
-            Practical training and certification for real industry careers
-          </h1>
-          <p className="hero-copy">
-            Eurotech Assessment and Certification Services Pvt. Ltd. delivers
-            practical skill training and globally recognized certification —
-            welding, robotics, plumbing, and CE mark compliance from Mohali to
-            world markets.
-          </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#enquire">
-              Start Enquiry
-            </a>
-            <a className="btn btn-secondary" href="#services">
-              View Programs
-            </a>
+      <section className="hero-cover" aria-label="Eurotech introduction">
+        <div className="hero-cover-media" aria-hidden="true" />
+        <div className="hero-cover-inner">
+          <div className="hero-cover-copy">
+            <p className="kicker">Training &amp; Certification</p>
+            <h1>Practical training for real industry careers</h1>
+            <p className="hero-copy">
+              Skill training and globally recognized certification in welding,
+              robotics, plumbing, and CE mark — from Mohali to world markets.
+            </p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#enquire">
+                Start Enquiry
+              </a>
+              <a className="btn btn-secondary" href="#services">
+                View Programs
+              </a>
+            </div>
           </div>
-          <div className="hero-facts" aria-label="Key facts">
-            <div>
-              <strong>Since 2008</strong>
-              <span>Training &amp; certification</span>
-            </div>
-            <div>
-              <strong>AWS Partner</strong>
-              <span>Miami, USA member</span>
-            </div>
-            <div>
-              <strong>IEB UK Path</strong>
-              <span>Plumbing certification</span>
-            </div>
-            <div>
-              <strong>Mohali Center</strong>
-              <span>Hands-on labs</span>
-            </div>
+        </div>
+        <div className="hero-rail" aria-label="Key facts">
+          <div>
+            <strong>Since 2008</strong>
+            <span>Training &amp; certification</span>
+          </div>
+          <div>
+            <strong>AWS Partner</strong>
+            <span>Miami, USA member</span>
+          </div>
+          <div>
+            <strong>IEB UK Path</strong>
+            <span>Plumbing certification</span>
+          </div>
+          <div>
+            <strong>Mohali Center</strong>
+            <span>Hands-on labs</span>
           </div>
         </div>
       </section>

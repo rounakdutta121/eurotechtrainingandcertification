@@ -35,7 +35,7 @@ export function Layout() {
             <a className="header-phone" href={CONTACT.phoneHref}>
               {CONTACT.phone}
             </a>
-            <a className="btn btn-primary" href="#enquire">
+            <a className="btn btn-primary header-enquire" href="#enquire">
               Start Enquiry
             </a>
           </div>

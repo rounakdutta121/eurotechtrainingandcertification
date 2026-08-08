@@ -66,42 +66,44 @@ export function PlumbingTraining() {
         description="Professional plumbing training institute in Mohali with IEB UK certification. Basic to Hi-Tech courses, design drafting, and fire plumbing modules."
       />
 
-      <section className="hero-center service-hero plumbing" aria-label="Plumbing training">
-        <div className="hero-visual-media" aria-hidden="true" />
-        <div className="hero-panel">
-          <p className="kicker">
-            Professional plumbing training institute — IEB UK certified
-          </p>
-          <h1>Build your career in the plumbing industry</h1>
-          <p className="hero-copy">
-            Hands-on, industry-focused plumbing training designed to make you
-            job-ready. Enroll today and secure your future.
-          </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#courses">
-              Explore Our Courses
-            </a>
-            <a className="btn btn-secondary" href="#enquire">
-              Contact Institute
-            </a>
+      <section className="hero-cover service-hero plumbing" aria-label="Plumbing training">
+        <div className="hero-cover-media" aria-hidden="true" />
+        <div className="hero-cover-inner">
+          <div className="hero-cover-copy">
+            <p className="kicker">
+              Professional plumbing training institute — IEB UK certified
+            </p>
+            <h1>Build your career in the plumbing industry</h1>
+            <p className="hero-copy">
+              Hands-on, industry-focused plumbing training designed to make you
+              job-ready. Enroll today and secure your future.
+            </p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#courses">
+                Explore Our Courses
+              </a>
+              <a className="btn btn-secondary" href="#enquire">
+                Contact Institute
+              </a>
+            </div>
           </div>
-          <div className="hero-facts" aria-label="Training highlights">
-            <div>
-              <strong>100%</strong>
-              <span>Job-Ready Focus</span>
-            </div>
-            <div>
-              <strong>90%</strong>
-              <span>Practical Training</span>
-            </div>
-            <div>
-              <strong>IEB UK</strong>
-              <span>Certification Path</span>
-            </div>
-            <div>
-              <strong>Mohali</strong>
-              <span>Live Site Simulation</span>
-            </div>
+        </div>
+        <div className="hero-rail" aria-label="Training highlights">
+          <div>
+            <strong>100%</strong>
+            <span>Job-Ready Focus</span>
+          </div>
+          <div>
+            <strong>90%</strong>
+            <span>Practical Training</span>
+          </div>
+          <div>
+            <strong>IEB UK</strong>
+            <span>Certification Path</span>
+          </div>
+          <div>
+            <strong>Mohali</strong>
+            <span>Live Site Simulation</span>
           </div>
         </div>
       </section>

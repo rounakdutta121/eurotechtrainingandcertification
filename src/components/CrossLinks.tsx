@@ -18,7 +18,7 @@ export function CrossLinks({ currentPath }: CrossLinksProps) {
         </div>
         <p>
           Move between programs anytime, or{' '}
-          <Link to="/" style={{ color: 'var(--brand-soft)', fontWeight: 600 }}>
+          <Link to="/" style={{ color: 'var(--brand)', fontWeight: 700 }}>
             return home
           </Link>{' '}
           for a full overview.

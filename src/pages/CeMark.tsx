@@ -58,43 +58,44 @@ export function CeMark() {
         </span>
       </div>
 
-      <section className="hero-center service-hero ce" aria-label="CE Mark certification">
-        <div className="hero-visual-media" aria-hidden="true" />
-        <div className="hero-panel">
-          <p className="kicker">
-            European market compliance · NANDO approved notified body
-          </p>
-          <h1>Get your products CE marked</h1>
-          <p className="hero-copy">
-            Unlock the European market. Ensure your products meet stringent
-            European safety, health, and environmental standards for seamless
-            entry into over 30 countries across the EU and EEA.
-          </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#enquire">
-              Get a Free Quote
-            </a>
-            <a className="btn btn-secondary" href="#why-ce">
-              Why CE Matters
-            </a>
+      <section className="hero-cover service-hero ce" aria-label="CE Mark certification">
+        <div className="hero-cover-media" aria-hidden="true" />
+        <div className="hero-cover-inner">
+          <div className="hero-cover-copy">
+            <p className="kicker">
+              European market compliance · NANDO approved notified body
+            </p>
+            <h1>Get your products CE marked</h1>
+            <p className="hero-copy">
+              Meet European safety, health, and environmental standards for
+              seamless entry into over 30 countries across the EU and EEA.
+            </p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#enquire">
+                Get a Free Quote
+              </a>
+              <a className="btn btn-secondary" href="#why-ce">
+                Why CE Matters
+              </a>
+            </div>
           </div>
-          <div className="hero-facts" aria-label="Key benefits">
-            <div>
-              <strong>30+</strong>
-              <span>European Countries</span>
-            </div>
-            <div>
-              <strong>Safety</strong>
-              <span>Compliance</span>
-            </div>
-            <div>
-              <strong>Trust</strong>
-              <span>Consumer Confidence</span>
-            </div>
-            <div>
-              <strong>Legal</strong>
-              <span>Protection</span>
-            </div>
+        </div>
+        <div className="hero-rail" aria-label="Key benefits">
+          <div>
+            <strong>30+</strong>
+            <span>European Countries</span>
+          </div>
+          <div>
+            <strong>Safety</strong>
+            <span>Compliance</span>
+          </div>
+          <div>
+            <strong>Trust</strong>
+            <span>Consumer Confidence</span>
+          </div>
+          <div>
+            <strong>Legal</strong>
+            <span>Protection</span>
           </div>
         </div>
       </section>

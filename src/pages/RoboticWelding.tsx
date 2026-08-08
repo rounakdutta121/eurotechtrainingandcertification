@@ -11,41 +11,42 @@ export function RoboticWelding() {
         description="Learn robotic welding on live industrial robots at Eurotech Mohali. 200+ hours practical training, industry certificate, job-oriented skills."
       />
 
-      <section className="hero-center service-hero robotic" aria-label="Robotic welding course">
-        <div className="hero-visual-media" aria-hidden="true" />
-        <div className="hero-panel">
-          <p className="kicker">Work on real welding robots — not just theory</p>
-          <h1>Learn robotic welding. Get ready for industry jobs.</h1>
-          <p className="hero-copy">
-            At Eurotech Mohali, we teach you how to operate and program
-            industrial welding robots used in automobile, manufacturing, and
-            engineering companies.
-          </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#enquire">
-              Book Your Seat Today
-            </a>
-            <a className="btn btn-secondary" href="#what-you-learn">
-              See What You Learn
-            </a>
+      <section className="hero-cover service-hero robotic" aria-label="Robotic welding course">
+        <div className="hero-cover-media" aria-hidden="true" />
+        <div className="hero-cover-inner">
+          <div className="hero-cover-copy">
+            <p className="kicker">Work on real welding robots — not just theory</p>
+            <h1>Learn robotic welding. Get ready for industry jobs.</h1>
+            <p className="hero-copy">
+              Operate and program industrial welding robots used in automobile,
+              manufacturing, and engineering — at Eurotech Mohali.
+            </p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#enquire">
+                Book Your Seat Today
+              </a>
+              <a className="btn btn-secondary" href="#what-you-learn">
+                See What You Learn
+              </a>
+            </div>
           </div>
-          <div className="hero-facts" aria-label="Course highlights">
-            <div>
-              <strong>200+ Hours</strong>
-              <span>Practical Training</span>
-            </div>
-            <div>
-              <strong>Live Robot</strong>
-              <span>Lab Training</span>
-            </div>
-            <div>
-              <strong>Eurotech</strong>
-              <span>Certification</span>
-            </div>
-            <div>
-              <strong>Job Focus</strong>
-              <span>Industry Skills</span>
-            </div>
+        </div>
+        <div className="hero-rail" aria-label="Course highlights">
+          <div>
+            <strong>200+ Hours</strong>
+            <span>Practical Training</span>
+          </div>
+          <div>
+            <strong>Live Robot</strong>
+            <span>Lab Training</span>
+          </div>
+          <div>
+            <strong>Eurotech</strong>
+            <span>Certification</span>
+          </div>
+          <div>
+            <strong>Job Focus</strong>
+            <span>Industry Skills</span>
           </div>
         </div>
       </section>
