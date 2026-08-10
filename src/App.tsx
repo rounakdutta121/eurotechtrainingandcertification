@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { ScrollToTop } from './components/ScrollToTop'
+import { WeldSplash } from './components/WeldSplash'
 import { Home } from './pages/Home'
 import { RoboticWelding } from './pages/RoboticWelding'
 import { CeMark } from './pages/CeMark'
@@ -12,6 +13,7 @@ import { About } from './pages/About'
 export default function App() {
   return (
     <BrowserRouter>
+      <WeldSplash />
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>

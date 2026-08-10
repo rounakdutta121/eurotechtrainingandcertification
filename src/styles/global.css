@@ -2993,3 +2993,204 @@ button.dir-row {
     min-height: 700px;
   }
 }
+
+/* ??? Weld splash loader ??? */
+html.splash-lock,
+html.splash-lock body {
+  overflow: hidden;
+}
+
+.weld-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 42%, #4a3480 0%, transparent 55%),
+    linear-gradient(165deg, #1a1230 0%, #2a1b4d 48%, #1f1638 100%);
+  transition:
+    opacity 0.55s var(--ease),
+    visibility 0.55s var(--ease);
+}
+
+.weld-splash.is-exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.weld-splash-plate {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 45%, #000 20%, transparent 75%);
+  pointer-events: none;
+}
+
+.weld-splash-stage {
+  position: relative;
+  width: min(92vw, 720px);
+  text-align: center;
+  padding: 1rem;
+}
+
+.weld-splash-art {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.weld-bead,
+.weld-bead-core {
+  stroke-dasharray: 720;
+  stroke-dashoffset: 720;
+  animation: weld-draw 1.45s cubic-bezier(0.45, 0, 0.2, 1) 0.15s forwards;
+}
+
+.weld-bead-core {
+  animation-duration: 1.5s;
+}
+
+.weld-torch {
+  opacity: 0;
+  animation:
+    weld-torch-show 0.01s linear 0.15s forwards,
+    weld-torch-fade 0.35s ease 1.55s forwards;
+}
+
+.weld-spark-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: weld-pulse 0.35s ease-in-out infinite;
+}
+
+.weld-spark {
+  opacity: 0;
+  animation: weld-spark-fly 0.55s ease-out infinite;
+}
+
+.weld-spark.s1 {
+  animation-delay: 0.2s;
+  --sx: 14px;
+  --sy: -22px;
+}
+
+.weld-spark.s2 {
+  animation-delay: 0.32s;
+  --sx: -12px;
+  --sy: -18px;
+}
+
+.weld-spark.s3 {
+  animation-delay: 0.44s;
+  --sx: 8px;
+  --sy: -28px;
+}
+
+.weld-spark.s4 {
+  animation-delay: 0.28s;
+  --sx: -6px;
+  --sy: -12px;
+}
+
+.weld-word-stroke {
+  stroke-dasharray: 980;
+  stroke-dashoffset: 980;
+  opacity: 0.95;
+  animation: weld-draw 1.35s cubic-bezier(0.4, 0, 0.2, 1) 0.85s forwards;
+}
+
+.weld-word-fill {
+  opacity: 0;
+  animation: weld-fill-in 0.7s var(--ease) 1.85s forwards;
+}
+
+.weld-splash-tag {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  opacity: 0;
+  transform: translateY(8px);
+  animation: weld-tag-in 0.55s var(--ease) 2.25s forwards;
+}
+
+@keyframes weld-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes weld-torch-show {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes weld-torch-fade {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes weld-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    stroke-width: 1.2;
+  }
+  50% {
+    opacity: 0.95;
+    stroke-width: 2.2;
+  }
+}
+
+@keyframes weld-spark-fly {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(1);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--sx), var(--sy)) scale(0.2);
+  }
+}
+
+@keyframes weld-fill-in {
+  from {
+    opacity: 0;
+    filter: drop-shadow(0 0 12px rgba(255, 102, 29, 0.85));
+  }
+  to {
+    opacity: 1;
+    filter: drop-shadow(0 0 0 rgba(255, 102, 29, 0));
+  }
+}
+
+@keyframes weld-tag-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .weld-splash-stage {
+    width: min(96vw, 720px);
+  }
+
+  .weld-splash-tag {
+    letter-spacing: 0.14em;
+    font-size: 0.68rem;
+  }
+}
