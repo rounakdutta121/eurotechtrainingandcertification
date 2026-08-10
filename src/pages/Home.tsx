@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom'
 import { LeadForm } from '../components/LeadForm'
 import { Seo } from '../components/Seo'
-import { CONTACT, SERVICE_PAGES } from '../data/services'
+import { SERVICE_PAGES } from '../data/services'
 
 export function Home() {
-  const [featured, ...rest] = SERVICE_PAGES
-
   return (
     <>
       <Seo
@@ -13,90 +11,112 @@ export function Home() {
         description="Eurotech Assessment and Certification Services — vocational training and certification in robotic welding, CE marking, plumbing, and AWS welding courses."
       />
 
-      <section className="hero-cover" aria-label="Eurotech introduction">
-        <div className="hero-cover-media" aria-hidden="true" />
-        <div className="hero-cover-inner">
-          <div className="hero-cover-copy">
+      <section className="hero-split" aria-label="Eurotech introduction">
+        <div className="hero-split-inner">
+          <div className="hero-split-copy">
             <p className="kicker">Training &amp; Certification</p>
-            <h1>Practical training for real industry careers</h1>
+            <h1>
+              Practical training for real industry <em>careers</em>
+            </h1>
             <p className="hero-copy">
               Skill training and globally recognized certification in welding,
               robotics, plumbing, and CE mark — from Mohali to world markets.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#enquire">
-                Start Enquiry
+                Start Enquiry <span aria-hidden="true">→</span>
               </a>
-              <a className="btn btn-secondary" href="#services">
-                View Programs
+              <a className="btn btn-outline" href="#services">
+                View Programs <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
-        </div>
-        <div className="hero-rail" aria-label="Key facts">
-          <div>
-            <strong>Since 2008</strong>
-            <span>Training &amp; certification</span>
-          </div>
-          <div>
-            <strong>AWS Partner</strong>
-            <span>Miami, USA member</span>
-          </div>
-          <div>
-            <strong>IEB UK Path</strong>
-            <span>Plumbing certification</span>
-          </div>
-          <div>
-            <strong>Mohali Center</strong>
-            <span>Hands-on labs</span>
+          <div className="hero-split-visual">
+            <div
+              className="hero-split-frame"
+              style={{ backgroundImage: "url('/images/home-hero.png')" }}
+              role="img"
+              aria-label="Eurotech trainees in workshop"
+            />
           </div>
         </div>
       </section>
 
+      <div className="proof-bar" aria-label="Key facts">
+        <div className="proof-item">
+          <div className="proof-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="5" width="18" height="16" rx="2" />
+              <path d="M3 10h18M8 3v4M16 3v4" />
+            </svg>
+          </div>
+          <div>
+            <strong>Since 2008</strong>
+            <span>Trusted by thousands</span>
+          </div>
+        </div>
+        <div className="proof-item">
+          <div className="proof-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </div>
+          <div>
+            <strong>AWS Partner</strong>
+            <span>Industry training partner</span>
+          </div>
+        </div>
+        <div className="proof-item">
+          <div className="proof-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9S14.5 18.2 12 21c-2.5-2.8-3.8-5.8-3.8-9S9.5 5.8 12 3z" />
+            </svg>
+          </div>
+          <div>
+            <strong>IEB UK Path</strong>
+            <span>Global recognition</span>
+          </div>
+        </div>
+        <div className="proof-item">
+          <div className="proof-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" />
+              <circle cx="12" cy="9" r="2.5" />
+            </svg>
+          </div>
+          <div>
+            <strong>Mohali Center</strong>
+            <span>State-of-the-art campus</span>
+          </div>
+        </div>
+      </div>
+
       <section className="programs-stage" id="services">
         <div className="programs-stage-head">
-          <div>
-            <span className="section-label">Programs</span>
-            <h2>Choose the program that fits your goal</h2>
-          </div>
+          <span className="section-label">Programs</span>
+          <h2>Choose the program that fits your goal</h2>
           <p>
             Four focused pathways. Each page explains what you learn, who it is
             for, and how to apply — in plain language.
           </p>
         </div>
 
-        <div className="program-mosaic">
-          <Link to={featured.to} className="mosaic-feature">
-            <div
-              className="mosaic-media"
-              style={{ backgroundImage: `url('${featured.image}')` }}
-              aria-hidden="true"
-            />
-            <div className="mosaic-copy">
-              <span className="path-index">01 / Featured</span>
-              <h3>{featured.title}</h3>
-              <p>{featured.blurb}</p>
+        <div className="program-cards">
+          {SERVICE_PAGES.map((page, index) => (
+            <Link key={page.to} to={page.to} className="program-card">
+              <div
+                className="program-card-media"
+                style={{ backgroundImage: `url('${page.image}')` }}
+              >
+                <span className="program-card-icon">0{index + 1}</span>
+              </div>
+              <h3>{page.title}</h3>
+              <p>{page.blurb}</p>
               <span className="go">Open details →</span>
-            </div>
-          </Link>
-
-          <div className="mosaic-stack">
-            {rest.map((page, index) => (
-              <Link key={page.to} to={page.to} className="mosaic-row">
-                <div
-                  className="mosaic-media"
-                  style={{ backgroundImage: `url('${page.image}')` }}
-                  aria-hidden="true"
-                />
-                <div className="mosaic-copy">
-                  <span className="path-index">0{index + 2} / Program</span>
-                  <h3>{page.title}</h3>
-                  <p>{page.blurb}</p>
-                  <span className="go">Open details →</span>
-                </div>
-              </Link>
-            ))}
-          </div>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -104,13 +124,14 @@ export function Home() {
         <div className="why-stage-grid">
           <div className="why-stage-main">
             <span className="section-label">Why Eurotech</span>
-            <h2>Simple process. Strong outcomes.</h2>
+            <h2>
+              Simple process. <em>Strong outcomes.</em>
+            </h2>
             <p>
               Eurotech Assessment and Certification Services helps candidates and
               companies build job-ready skills with structured training and
               recognized certification support.
             </p>
-
             <ol className="why-steps">
               <li>
                 <strong>01</strong>
@@ -135,35 +156,47 @@ export function Home() {
             </ol>
           </div>
 
-          <aside className="why-stage-side">
+          <aside className="why-panel">
             <div className="cred-rail">
               <div className="cred-block">
+                <span className="cred-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="5" width="18" height="16" rx="2" />
+                    <path d="M3 10h18M8 3v4M16 3v4" />
+                  </svg>
+                </span>
                 <strong>Est. 2008</strong>
-                <span>Years of training &amp; certification delivery</span>
+                <span>Years of training delivery</span>
               </div>
               <div className="cred-block">
+                <span className="cred-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </span>
                 <strong>AWS Partner</strong>
-                <span>Educational Company Member, Miami, USA</span>
+                <span>Miami, USA member</span>
               </div>
               <div className="cred-block">
+                <span className="cred-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6" />
+                  </svg>
+                </span>
                 <strong>Mohali Lab</strong>
-                <span>Practical sessions with guided trainers</span>
+                <span>Hands-on campus</span>
               </div>
             </div>
-
-            <div className="visit-panel">
-              <span className="visit-tag">Campus</span>
-              <h3>Visit our training center</h3>
-              <p>{CONTACT.address}</p>
-              <p>
-                <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
-                <br />
-                <a href={CONTACT.emailHref}>{CONTACT.email}</a>
-              </p>
-              <a className="btn btn-primary" href="#enquire">
-                Book a callback
-              </a>
-            </div>
+            <div
+              className="why-panel-photo"
+              style={{ backgroundImage: "url('/images/home-campus-fill.png')" }}
+              role="img"
+              aria-label="Eurotech Mohali training campus"
+            />
+            <a className="btn btn-primary why-panel-cta" href="#enquire">
+              Book a callback <span aria-hidden="true">→</span>
+            </a>
           </aside>
         </div>
       </section>

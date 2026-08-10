@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { CrossLinks } from '../components/CrossLinks'
+import { ProofBar } from '../components/ProofBar'
 import { ServiceEnquire } from '../components/ServiceEnquire'
 import { Seo } from '../components/Seo'
 import { CONTACT } from '../data/services'
@@ -78,45 +79,46 @@ export function WeldingTraining() {
         description="Professional welder training at Eurotech Mohali. Exclusive international partner of American Welding Society (AWS) Miami, USA. AWS, robotic welding, NDT Level-II."
       />
 
-      <section className="hero-cover service-hero welding" aria-label="Welding training">
-        <div className="hero-cover-media" aria-hidden="true" />
-        <div className="hero-cover-inner">
-          <div className="hero-cover-copy">
+      <section className="hero-split service-hero welding" aria-label="Welding training">
+        <div className="hero-split-inner">
+          <div className="hero-split-copy">
             <p className="kicker">Educational partner · Est. 2008</p>
-            <h1>Professional welder training</h1>
+            <h1>
+              Professional <em>welder training</em>
+            </h1>
             <p className="hero-copy">
               Exclusive International Partner of American Welding Society (AWS)
               Miami, USA. Global training standards for high-demand careers.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="#programs">
-                Our Certifications
+              <a className="btn btn-primary" href="#enquire">
+                Start free counselling
               </a>
-              <a className="btn btn-secondary" href="#enquire">
-                Enroll Now
+              <a className="btn btn-outline" href="#programs">
+                Compare programs
               </a>
             </div>
           </div>
-        </div>
-        <div className="hero-rail" aria-label="Partner highlights">
-          <div>
-            <strong>AWS</strong>
-            <span>Miami, USA Partner</span>
-          </div>
-          <div>
-            <strong>15+</strong>
-            <span>Global Offices</span>
-          </div>
-          <div>
-            <strong>ASNT</strong>
-            <span>Level II Center</span>
-          </div>
-          <div>
-            <strong>Est. 2008</strong>
-            <span>Legacy of Excellence</span>
+          <div className="hero-split-visual">
+            <div
+              className="hero-split-frame"
+              style={{ backgroundImage: "url('/images/program-welding.png')" }}
+              role="img"
+              aria-label="Welding training"
+            />
           </div>
         </div>
       </section>
+
+      <ProofBar
+        label="Partner highlights"
+        items={[
+          { icon: 'shield', title: 'AWS', subtitle: 'Miami, USA Partner' },
+          { icon: 'globe', title: '15+', subtitle: 'Global Offices' },
+          { icon: 'badge', title: 'ASNT', subtitle: 'Level II Center' },
+          { icon: 'calendar', title: 'Est. 2008', subtitle: 'Legacy of Excellence' },
+        ]}
+      />
 
       <section className="why-stage">
         <div className="why-stage-grid">
@@ -152,7 +154,7 @@ export function WeldingTraining() {
               </li>
             </ol>
           </div>
-          <aside className="why-stage-side">
+          <aside className="why-panel">
             <div className="cred-rail">
               {cities.map((city) => (
                 <div className="cred-block" key={city}>
@@ -161,6 +163,12 @@ export function WeldingTraining() {
                 </div>
               ))}
             </div>
+            <div
+              className="why-panel-photo"
+              style={{ backgroundImage: "url('/images/welding-about-fill.png')" }}
+              role="img"
+              aria-label="Welding professionals training for global certification careers"
+            />
           </aside>
         </div>
       </section>
@@ -263,28 +271,47 @@ export function WeldingTraining() {
             <span className="section-label">Start</span>
             <h2>Start your global career</h2>
             <p>AWS Membership & Certified Training Services since 2008.</p>
-            <ol className="why-steps">
+            <ol className="why-steps why-steps-icons">
               <li>
-                <strong>Address</strong>
+                <strong aria-label="Address">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" />
+                    <circle cx="12" cy="9" r="2.5" />
+                  </svg>
+                </strong>
                 <span>
                   Plot No: 146, JLPL Industrial Area, Sector 82 Mohali
                   Punjab-160062
                 </span>
               </li>
               <li>
-                <strong>Phone</strong>
+                <strong aria-label="Phone">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.2a2 2 0 0 1 2.1-.4c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 1.9z" />
+                  </svg>
+                </strong>
                 <span>
-                  <a href="tel:+919316744482">+91-9316744482</a>
+                  <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
                 </span>
               </li>
               <li>
-                <strong>Email</strong>
+                <strong aria-label="Email">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 7 9-7" />
+                  </svg>
+                </strong>
                 <span>
                   <a href="mailto:trg@eurotechworld.net">trg@eurotechworld.net</a>
                 </span>
               </li>
               <li>
-                <strong>Also</strong>
+                <strong aria-label="Also contact">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M3 12h18M12 3c2.5 2.8 3.8 5.8 3.8 9S14.5 18.2 12 21c-2.5-2.8-3.8-5.8-3.8-9S9.5 5.8 12 3z" />
+                  </svg>
+                </strong>
                 <span>
                   <a href={CONTACT.phoneHref}>{CONTACT.phone}</a> ·{' '}
                   <a href={CONTACT.emailHref}>{CONTACT.email}</a>
@@ -292,7 +319,13 @@ export function WeldingTraining() {
               </li>
             </ol>
           </div>
-          <aside className="why-stage-side">
+          <aside className="why-panel">
+            <div
+              className="why-panel-photo"
+              style={{ backgroundImage: "url('/images/welding-career-fill.png')" }}
+              role="img"
+              aria-label="Certified welder starting a global career opportunity"
+            />
             <div className="visit-panel">
               <span className="visit-tag">Accredited</span>
               <h3>
@@ -302,7 +335,7 @@ export function WeldingTraining() {
               <p>
                 Bridge training and global placement with AWS-aligned standards.
               </p>
-              <a className="btn btn-primary" href="#enquire">
+              <a className="btn btn-primary why-panel-cta" href="#enquire">
                 Submit interest
               </a>
             </div>

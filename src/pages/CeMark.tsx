@@ -1,47 +1,14 @@
-import { CrossLinks } from '../components/CrossLinks'
+import { useState } from 'react'
+import { ProofBar } from '../components/ProofBar'
 import { ServiceEnquire } from '../components/ServiceEnquire'
 import { Seo } from '../components/Seo'
-
-const industries = [
-  {
-    title: 'Electrical & Electronics',
-    detail: 'Consumer electronics, industrial controls, lighting equipment',
-  },
-  {
-    title: 'Medical Devices',
-    detail: 'Diagnostic tools, surgical instruments, implantables',
-  },
-  {
-    title: 'Pressure Equipment',
-    detail: 'Boilers, vessels, pressure accessories',
-  },
-  {
-    title: 'Construction Products',
-    detail: 'Building materials, doors, insulation',
-  },
-  {
-    title: 'Machinery',
-    detail: 'Industrial machines, automation systems, farming equipment',
-  },
-  {
-    title: 'Personal Protective Equipment',
-    detail: 'Protective gloves, helmets, respiratory devices',
-  },
-  {
-    title: 'Toys & Leisure',
-    detail: "Children's toys, sporting goods",
-  },
-  {
-    title: 'Measuring Instruments',
-    detail: 'Water/gas meters, weighing devices',
-  },
-  {
-    title: 'Environmental & Energy',
-    detail: 'Solar panels, monitoring instruments',
-  },
-]
+import { CE_INDUSTRIES, type CeIndustry } from '../data/ceIndustries'
 
 export function CeMark() {
+  const [selectedIndustry, setSelectedIndustry] = useState<CeIndustry | null>(
+    null,
+  )
+
   return (
     <>
       <Seo
@@ -50,55 +17,64 @@ export function CeMark() {
       />
 
       <div className="marquee" aria-hidden="true">
-        <span>
-          Beware: 90% of CE certificates issued in India are fake · Beware: 90%
-          of CE certificates issued in India are fake · Beware: 90% of CE
-          certificates issued in India are fake · Beware: 90% of CE certificates
-          issued in India are fake ·{' '}
-        </span>
+        <div className="marquee-track">
+          <span>
+            Beware: 90% of CE certificates issued in India are fake · Beware: 90%
+            of CE certificates issued in India are fake · Beware: 90% of CE
+            certificates issued in India are fake · Beware: 90% of CE certificates
+            issued in India are fake ·{' '}
+          </span>
+          <span>
+            Beware: 90% of CE certificates issued in India are fake · Beware: 90%
+            of CE certificates issued in India are fake · Beware: 90% of CE
+            certificates issued in India are fake · Beware: 90% of CE certificates
+            issued in India are fake ·{' '}
+          </span>
+        </div>
       </div>
 
-      <section className="hero-cover service-hero ce" aria-label="CE Mark certification">
-        <div className="hero-cover-media" aria-hidden="true" />
-        <div className="hero-cover-inner">
-          <div className="hero-cover-copy">
+      <section className="hero-split service-hero ce" aria-label="CE Mark certification">
+        <div className="hero-split-inner">
+          <div className="hero-split-copy">
             <p className="kicker">
               European market compliance · NANDO approved notified body
             </p>
-            <h1>Get your products CE marked</h1>
+            <h1>
+              Get your products <em>CE marked</em>
+            </h1>
             <p className="hero-copy">
               Meet European safety, health, and environmental standards for
               seamless entry into over 30 countries across the EU and EEA.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#enquire">
-                Get a Free Quote
+                Get a free quote
               </a>
-              <a className="btn btn-secondary" href="#why-ce">
-                Why CE Matters
+              <a className="btn btn-outline" href="#why-ce">
+                Why CE matters
               </a>
             </div>
           </div>
-        </div>
-        <div className="hero-rail" aria-label="Key benefits">
-          <div>
-            <strong>30+</strong>
-            <span>European Countries</span>
-          </div>
-          <div>
-            <strong>Safety</strong>
-            <span>Compliance</span>
-          </div>
-          <div>
-            <strong>Trust</strong>
-            <span>Consumer Confidence</span>
-          </div>
-          <div>
-            <strong>Legal</strong>
-            <span>Protection</span>
+          <div className="hero-split-visual">
+            <div
+              className="hero-split-frame"
+              style={{ backgroundImage: "url('/images/ce-hero-hope.png')" }}
+              role="img"
+              aria-label="Zoomed European Union flag in a modern European market with people"
+            />
           </div>
         </div>
       </section>
+
+      <ProofBar
+        label="Key benefits"
+        items={[
+          { icon: 'globe', title: '30+', subtitle: 'European Countries' },
+          { icon: 'safety', title: 'Safety', subtitle: 'Compliance' },
+          { icon: 'people', title: 'Trust', subtitle: 'Consumer Confidence' },
+          { icon: 'legal', title: 'Legal', subtitle: 'Protection' },
+        ]}
+      />
 
       <section className="why-stage" id="why-ce">
         <div className="why-stage-grid">
@@ -141,7 +117,7 @@ export function CeMark() {
               </li>
             </ol>
           </div>
-          <aside className="why-stage-side">
+          <aside className="why-panel">
             <div className="cred-rail">
               <div className="cred-block">
                 <strong>Streamlined trade</strong>
@@ -159,6 +135,12 @@ export function CeMark() {
                 <span>From assessment to declaration and marking guidance</span>
               </div>
             </div>
+            <div
+              className="why-panel-photo"
+              style={{ backgroundImage: "url('/images/ce-international-fill.png')" }}
+              role="img"
+              aria-label="Professionals ready for international European career opportunities"
+            />
             <div className="visit-panel">
               <span className="visit-tag">Consultation</span>
               <h3>Ready to start your CE journey?</h3>
@@ -166,7 +148,7 @@ export function CeMark() {
                 Our experts guide every step for compliance and European market
                 access.
               </p>
-              <a className="btn btn-primary" href="#enquire">
+              <a className="btn btn-primary why-panel-cta" href="#enquire">
                 Get Free Consultation
               </a>
             </div>
@@ -174,28 +156,86 @@ export function CeMark() {
         </div>
       </section>
 
-      <section className="content-stage">
+      <section className="content-stage" id="industries">
         <div className="shell">
           <div className="stage-head">
             <span className="section-label">Industries</span>
             <h2>Industries we serve</h2>
             <p>
               We specialize in CE Mark Certification across a broad range of
-              industries.
+              industries. Select an industry to see products, directives, and
+              services.
             </p>
           </div>
-          <div className="dir-list">
-            {industries.map((item, index) => (
-              <a href="#enquire" className="dir-row" key={item.title}>
-                <span className="dir-num">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3>{item.title}</h3>
-                <p>{item.detail}</p>
-                <span className="go">Learn more →</span>
-              </a>
-            ))}
-          </div>
+
+          {selectedIndustry ? (
+            <div className="industry-detail">
+              <button
+                type="button"
+                className="industry-back"
+                onClick={() => setSelectedIndustry(null)}
+              >
+                ← Back to industries
+              </button>
+              <div className="industry-detail-head">
+                <h3>{selectedIndustry.title}</h3>
+                <p>{selectedIndustry.detail}</p>
+              </div>
+              <div className="industry-detail-grid">
+                <div className="industry-panel">
+                  <h4>Key products</h4>
+                  <ul>
+                    {selectedIndustry.keyProducts.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="industry-panel">
+                  <h4>Applicable directives</h4>
+                  <ul>
+                    {selectedIndustry.directives.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="industry-panel">
+                <h4>Services provided</h4>
+                <ul>
+                  {selectedIndustry.services.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="industry-detail-cta">
+                <p>
+                  Contact us for tailored CE certification services for your{' '}
+                  {selectedIndustry.title.toLowerCase()} products.
+                </p>
+                <a className="btn btn-primary" href="#enquire">
+                  Get a free quote
+                </a>
+              </div>
+            </div>
+          ) : (
+            <div className="dir-list">
+              {CE_INDUSTRIES.map((item, index) => (
+                <button
+                  type="button"
+                  className="dir-row"
+                  key={item.id}
+                  onClick={() => setSelectedIndustry(item)}
+                >
+                  <span className="dir-num">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3>{item.title}</h3>
+                  <p>{item.detail}</p>
+                  <span className="go">Learn more →</span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -330,7 +370,6 @@ export function CeMark() {
         title="Get a free quote"
         subtitle="Tell us your product category — we map requirements and next steps."
       />
-      <CrossLinks currentPath="/ce-mark" />
     </>
   )
 }

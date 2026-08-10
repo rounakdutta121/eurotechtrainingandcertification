@@ -1,6 +1,8 @@
 import { CrossLinks } from '../components/CrossLinks'
+import { ProofBar } from '../components/ProofBar'
 import { ServiceEnquire } from '../components/ServiceEnquire'
 import { Seo } from '../components/Seo'
+import { CONTACT } from '../data/services'
 
 const courses = [
   {
@@ -66,47 +68,48 @@ export function PlumbingTraining() {
         description="Professional plumbing training institute in Mohali with IEB UK certification. Basic to Hi-Tech courses, design drafting, and fire plumbing modules."
       />
 
-      <section className="hero-cover service-hero plumbing" aria-label="Plumbing training">
-        <div className="hero-cover-media" aria-hidden="true" />
-        <div className="hero-cover-inner">
-          <div className="hero-cover-copy">
+      <section className="hero-split service-hero plumbing" aria-label="Plumbing training">
+        <div className="hero-split-inner">
+          <div className="hero-split-copy">
             <p className="kicker">
               Professional plumbing training institute — IEB UK certified
             </p>
-            <h1>Build your career in the plumbing industry</h1>
+            <h1>
+              Build your career in the <em>plumbing industry</em>
+            </h1>
             <p className="hero-copy">
               Hands-on, industry-focused plumbing training designed to make you
               job-ready. Enroll today and secure your future.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="#courses">
-                Explore Our Courses
+              <a className="btn btn-primary" href="#enquire">
+                Start free counselling
               </a>
-              <a className="btn btn-secondary" href="#enquire">
-                Contact Institute
+              <a className="btn btn-outline" href="#courses">
+                Compare courses
               </a>
             </div>
           </div>
-        </div>
-        <div className="hero-rail" aria-label="Training highlights">
-          <div>
-            <strong>100%</strong>
-            <span>Job-Ready Focus</span>
-          </div>
-          <div>
-            <strong>90%</strong>
-            <span>Practical Training</span>
-          </div>
-          <div>
-            <strong>IEB UK</strong>
-            <span>Certification Path</span>
-          </div>
-          <div>
-            <strong>Mohali</strong>
-            <span>Live Site Simulation</span>
+          <div className="hero-split-visual">
+            <div
+              className="hero-split-frame"
+              style={{ backgroundImage: "url('/images/program-plumbing.png')" }}
+              role="img"
+              aria-label="Plumbing training"
+            />
           </div>
         </div>
       </section>
+
+      <ProofBar
+        label="Training highlights"
+        items={[
+          { icon: 'check', title: '100%', subtitle: 'Job-Ready Focus' },
+          { icon: 'clock', title: '90%', subtitle: 'Practical Training' },
+          { icon: 'globe', title: 'IEB UK', subtitle: 'Certification Path' },
+          { icon: 'pin', title: 'Mohali', subtitle: 'Live Site Simulation' },
+        ]}
+      />
 
       <section className="why-stage">
         <div className="why-stage-grid">
@@ -143,7 +146,7 @@ export function PlumbingTraining() {
               </li>
             </ol>
           </div>
-          <aside className="why-stage-side">
+          <aside className="why-panel">
             <div className="cred-rail">
               <div className="cred-block">
                 <strong>Experienced trainers</strong>
@@ -158,20 +161,23 @@ export function PlumbingTraining() {
                 <span>Environments that mimic real construction sites</span>
               </div>
             </div>
+            <div
+              className="why-panel-photo"
+              style={{ backgroundImage: "url('/images/plumbing-campus-fill.png')" }}
+              role="img"
+              aria-label="Plumbing trainee practicing modern installation skills for global careers"
+            />
             <div className="visit-panel">
               <span className="visit-tag">Campus</span>
               <h3>Plot No 146, Sector 82, Mohali</h3>
               <p>JLPL Industrial area, Punjab 140308</p>
               <p>
-                <a href="tel:+919120884044">+91-9120884044</a>
+                <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
                 <br />
                 <a href="mailto:eurotechplumbingtraining@gmail.com">
                   eurotechplumbingtraining@gmail.com
                 </a>
               </p>
-              <a className="btn btn-primary" href="#enquire">
-                Contact us
-              </a>
             </div>
           </aside>
         </div>
@@ -218,7 +224,7 @@ export function PlumbingTraining() {
         </div>
       </section>
 
-      <section className="content-stage ink">
+      <section className="content-stage">
         <div className="shell">
           <div className="stage-head">
             <span className="section-label">Specialized module</span>

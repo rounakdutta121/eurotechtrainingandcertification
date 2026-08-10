@@ -1,4 +1,5 @@
 import { CrossLinks } from '../components/CrossLinks'
+import { ProofBar } from '../components/ProofBar'
 import { ServiceEnquire } from '../components/ServiceEnquire'
 import { Seo } from '../components/Seo'
 import { CONTACT } from '../data/services'
@@ -11,45 +12,46 @@ export function RoboticWelding() {
         description="Learn robotic welding on live industrial robots at Eurotech Mohali. 200+ hours practical training, industry certificate, job-oriented skills."
       />
 
-      <section className="hero-cover service-hero robotic" aria-label="Robotic welding course">
-        <div className="hero-cover-media" aria-hidden="true" />
-        <div className="hero-cover-inner">
-          <div className="hero-cover-copy">
+      <section className="hero-split service-hero robotic" aria-label="Robotic welding course">
+        <div className="hero-split-inner">
+          <div className="hero-split-copy">
             <p className="kicker">Work on real welding robots — not just theory</p>
-            <h1>Learn robotic welding. Get ready for industry jobs.</h1>
+            <h1>
+              Learn <em>robotic welding</em>. Get ready for industry jobs.
+            </h1>
             <p className="hero-copy">
               Operate and program industrial welding robots used in automobile,
               manufacturing, and engineering — at Eurotech Mohali.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#enquire">
-                Book Your Seat Today
+                Start free counselling
               </a>
-              <a className="btn btn-secondary" href="#what-you-learn">
-                See What You Learn
+              <a className="btn btn-outline" href="#what-you-learn">
+                See what you learn
               </a>
             </div>
           </div>
-        </div>
-        <div className="hero-rail" aria-label="Course highlights">
-          <div>
-            <strong>200+ Hours</strong>
-            <span>Practical Training</span>
-          </div>
-          <div>
-            <strong>Live Robot</strong>
-            <span>Lab Training</span>
-          </div>
-          <div>
-            <strong>Eurotech</strong>
-            <span>Certification</span>
-          </div>
-          <div>
-            <strong>Job Focus</strong>
-            <span>Industry Skills</span>
+          <div className="hero-split-visual">
+            <div
+              className="hero-split-frame"
+              style={{ backgroundImage: "url('/images/program-robotic.png')" }}
+              role="img"
+              aria-label="Robotic welding training"
+            />
           </div>
         </div>
       </section>
+
+      <ProofBar
+        label="Course highlights"
+        items={[
+          { icon: 'clock', title: '200+ Hours', subtitle: 'Practical Training' },
+          { icon: 'robot', title: 'Live Robot', subtitle: 'Lab Training' },
+          { icon: 'badge', title: 'Eurotech', subtitle: 'Certification' },
+          { icon: 'briefcase', title: 'Job Focus', subtitle: 'Industry Skills' },
+        ]}
+      />
 
       <section className="why-stage">
         <div className="why-stage-grid">
@@ -82,21 +84,44 @@ export function RoboticWelding() {
               </li>
             </ol>
           </div>
-          <aside className="why-stage-side">
+          <aside className="why-panel">
             <div className="cred-rail">
               <div className="cred-block">
+                <span className="cred-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="6" y="8" width="12" height="10" rx="2" />
+                    <path d="M12 4v4M9 13h.01M15 13h.01M8 18v2M16 18v2" />
+                  </svg>
+                </span>
                 <strong>Live robots</strong>
                 <span>Practice on actual industrial welding robots</span>
               </div>
               <div className="cred-block">
+                <span className="cred-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" />
+                  </svg>
+                </span>
                 <strong>Safety first</strong>
                 <span>Emergency stop, safety area, safe working methods</span>
               </div>
               <div className="cred-block">
+                <span className="cred-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4" />
+                  </svg>
+                </span>
                 <strong>Settings</strong>
                 <span>Voltage, current, gas flow, wire feed, travel speed</span>
               </div>
             </div>
+            <div
+              className="why-panel-photo"
+              style={{ backgroundImage: "url('/images/robotic-mohali-fill.png')" }}
+              role="img"
+              aria-label="Hands-on robotic welding practice in Mohali lab"
+            />
             <div className="visit-panel">
               <span className="visit-tag">Mohali Lab</span>
               <h3>Practical training in Mohali robot lab</h3>
@@ -104,8 +129,8 @@ export function RoboticWelding() {
               <p>
                 <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
               </p>
-              <a className="btn btn-primary" href="#enquire">
-                Book your training slot
+              <a className="btn btn-primary why-panel-cta" href="#enquire">
+                Book your training slot <span aria-hidden="true">→</span>
               </a>
             </div>
           </aside>
@@ -139,7 +164,7 @@ export function RoboticWelding() {
             </article>
             <article className="process-step">
               <span className="path-index">02</span>
-              <h3>Robot Operation & Programming</h3>
+              <h3>Robot Operation &amp; Programming</h3>
               <p>Learn how to control and program welding robots.</p>
               <ul>
                 <li>Robot Movement</li>
@@ -151,7 +176,7 @@ export function RoboticWelding() {
             </article>
             <article className="process-step">
               <span className="path-index">03</span>
-              <h3>Safety & Daily Maintenance</h3>
+              <h3>Safety &amp; Daily Maintenance</h3>
               <p>Learn how to keep machines running safely.</p>
               <ul>
                 <li>Daily Inspection</li>
@@ -175,9 +200,9 @@ export function RoboticWelding() {
         </div>
       </section>
 
-      <section className="content-stage alt">
+      <section className="settings-stage">
         <div className="shell">
-          <div className="stage-head">
+          <div className="settings-head">
             <span className="section-label">Weld settings</span>
             <h2>Learn complete welding settings</h2>
             <p>
@@ -185,51 +210,64 @@ export function RoboticWelding() {
               speed and robot travel speed through practical work.
             </p>
           </div>
-          <div className="metric-board">
-            <article className="metric-tile">
+
+          <div className="settings-matrix" aria-label="Welding parameters">
+            <article>
+              <span>01</span>
               <h3>Voltage</h3>
               <p>Controls arc length and weld bead quality for strong, clean joints.</p>
             </article>
-            <article className="metric-tile">
+            <article>
+              <span>02</span>
               <h3>Current</h3>
               <p>Controls heat and penetration for proper weld fusion.</p>
             </article>
-            <article className="metric-tile">
+            <article>
+              <span>03</span>
               <h3>Gas Flow</h3>
               <p>Protects the weld from air and helps prevent porosity defects.</p>
             </article>
-            <article className="metric-tile">
+            <article>
+              <span>04</span>
               <h3>Wire Feed Speed</h3>
               <p>Works with voltage and current to control weld deposition rate.</p>
             </article>
-            <article className="metric-tile soft">
-              <h3>Porosity (Gas Holes)</h3>
-              <p>Gas holes in the weld that weaken joint strength.</p>
-            </article>
-            <article className="metric-tile soft">
-              <h3>Weak Welds</h3>
-              <p>Weld does not join properly due to incorrect settings.</p>
-            </article>
-            <article className="metric-tile soft">
-              <h3>Excess Heat Problems</h3>
-              <p>Too much heat causes burn-through and distortion.</p>
-            </article>
-            <article className="metric-tile soft">
-              <h3>Poor Weld Shape</h3>
-              <p>Bad bead shape from incorrect travel speed or settings.</p>
-            </article>
-            <article className="metric-tile">
+            <article>
+              <span>05</span>
               <h3>Robot Travel Speed</h3>
               <p>Control how fast the torch moves along the weld path.</p>
             </article>
-            <article className="metric-tile">
-              <h3>Torch & TCP Setup</h3>
+            <article>
+              <span>06</span>
+              <h3>Torch &amp; TCP Setup</h3>
               <p>Learn how robots position the welding torch accurately.</p>
             </article>
-            <article className="metric-tile">
-              <h3>Weld Quality Checking</h3>
-              <p>Inspect welds and identify defects to improve quality.</p>
-            </article>
+          </div>
+
+          <div className="settings-ribbon">
+            <p className="settings-ribbon-label">Defects &amp; quality checks you practice</p>
+            <ul>
+              <li>
+                <strong>Porosity (Gas Holes)</strong>
+                <span>Gas holes in the weld that weaken joint strength.</span>
+              </li>
+              <li>
+                <strong>Weak Welds</strong>
+                <span>Weld does not join properly due to incorrect settings.</span>
+              </li>
+              <li>
+                <strong>Excess Heat Problems</strong>
+                <span>Too much heat causes burn-through and distortion.</span>
+              </li>
+              <li>
+                <strong>Poor Weld Shape</strong>
+                <span>Bad bead shape from incorrect travel speed or settings.</span>
+              </li>
+              <li>
+                <strong>Weld Quality Checking</strong>
+                <span>Inspect welds and identify defects to improve quality.</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -266,8 +304,8 @@ export function RoboticWelding() {
               </li>
             </ol>
           </div>
-          <aside className="why-stage-side">
-            <div className="cred-rail">
+          <aside className="why-panel">
+            <div className="cred-rail cred-rail-six">
               <div className="cred-block">
                 <strong>Certificate</strong>
                 <span>Eurotech Robotic Welding Operator & Programmer</span>
@@ -293,6 +331,12 @@ export function RoboticWelding() {
                 <span>Admissions open — limited practical seats</span>
               </div>
             </div>
+            <div
+              className="why-panel-photo"
+              style={{ backgroundImage: "url('/images/robotic-lab-fill.png')" }}
+              role="img"
+              aria-label="Students training on robotic welding equipment"
+            />
           </aside>
         </div>
       </section>

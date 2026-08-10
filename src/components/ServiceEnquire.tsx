@@ -25,7 +25,7 @@ export function ServiceEnquire({
           <ul className="enquire-flow">
             <li>
               <em>1</em>
-              <span>Share your details and preferred service</span>
+              <span>Share your details — service is pre-selected</span>
             </li>
             <li>
               <em>2</em>
