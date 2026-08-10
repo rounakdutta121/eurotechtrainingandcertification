@@ -3048,18 +3048,18 @@ html.splash-lock body {
 .weld-bead-core {
   stroke-dasharray: 720;
   stroke-dashoffset: 720;
-  animation: weld-draw 1.45s cubic-bezier(0.45, 0, 0.2, 1) 0.15s forwards;
+  animation: weld-draw 0.7s cubic-bezier(0.45, 0, 0.2, 1) 0.1s forwards;
 }
 
 .weld-bead-core {
-  animation-duration: 1.5s;
+  animation-duration: 0.75s;
 }
 
 .weld-torch {
   opacity: 0;
   animation:
-    weld-torch-show 0.01s linear 0.15s forwards,
-    weld-torch-fade 0.35s ease 1.55s forwards;
+    weld-torch-show 0.01s linear 0.1s forwards,
+    weld-torch-fade 0.3s ease 0.75s forwards;
 }
 
 .weld-spark-ring {
@@ -3101,12 +3101,12 @@ html.splash-lock body {
   stroke-dasharray: 980;
   stroke-dashoffset: 980;
   opacity: 0.95;
-  animation: weld-draw 1.35s cubic-bezier(0.4, 0, 0.2, 1) 0.85s forwards;
+  animation: weld-draw 1s cubic-bezier(0.4, 0, 0.2, 1) 0.55s forwards;
 }
 
 .weld-word-fill {
   opacity: 0;
-  animation: weld-fill-in 0.7s var(--ease) 1.85s forwards;
+  animation: weld-fill-in 0.55s var(--ease) 1.25s forwards;
 }
 
 .weld-splash-tag {
@@ -3119,7 +3119,7 @@ html.splash-lock body {
   color: rgba(255, 255, 255, 0.55);
   opacity: 0;
   transform: translateY(8px);
-  animation: weld-tag-in 0.55s var(--ease) 2.25s forwards;
+  animation: weld-tag-in 0.45s var(--ease) 1.55s forwards;
 }
 
 @keyframes weld-draw {

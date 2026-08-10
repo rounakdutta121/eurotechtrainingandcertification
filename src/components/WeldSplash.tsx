@@ -1,8 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
-const WELD_PATH =
-  'M48 148 C 140 142, 220 156, 310 148 S 500 140, 672 150'
+const WELD_PATH = 'M48 148 L672 148'
 
 type Phase = 'run' | 'exit' | 'done'
 
@@ -11,40 +9,24 @@ function prefersReducedMotion() {
 }
 
 export function WeldSplash() {
-  const { pathname } = useLocation()
-  const prevPath = useRef(pathname)
-  const [playId, setPlayId] = useState(0)
   const [phase, setPhase] = useState<Phase>(() =>
     prefersReducedMotion() ? 'done' : 'run',
   )
-
-  useEffect(() => {
-    if (prefersReducedMotion()) {
-      setPhase('done')
-      return
-    }
-
-    if (prevPath.current === pathname) return
-
-    prevPath.current = pathname
-    setPlayId((id) => id + 1)
-    setPhase('run')
-  }, [pathname])
 
   useEffect(() => {
     if (phase !== 'run') return
 
     document.documentElement.classList.add('splash-lock')
 
-    const exitTimer = window.setTimeout(() => setPhase('exit'), 3200)
-    const doneTimer = window.setTimeout(() => setPhase('done'), 3800)
+    const exitTimer = window.setTimeout(() => setPhase('exit'), 2600)
+    const doneTimer = window.setTimeout(() => setPhase('done'), 3200)
 
     return () => {
       window.clearTimeout(exitTimer)
       window.clearTimeout(doneTimer)
       document.documentElement.classList.remove('splash-lock')
     }
-  }, [phase, playId])
+  }, [phase])
 
   useEffect(() => {
     if (phase === 'done') {
@@ -56,7 +38,6 @@ export function WeldSplash() {
 
   return (
     <div
-      key={playId}
       className={`weld-splash${phase === 'exit' ? ' is-exit' : ''}`}
       role="status"
       aria-live="polite"
@@ -70,34 +51,16 @@ export function WeldSplash() {
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <linearGradient
-              id={`weld-molten-${playId}`}
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="0%"
-            >
+            <linearGradient id="weld-molten" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#ffb347" />
               <stop offset="45%" stopColor="#ff661d" />
               <stop offset="100%" stopColor="#ffd27a" />
             </linearGradient>
-            <linearGradient
-              id={`weld-cool-${playId}`}
-              x1="0%"
-              y1="0%"
-              x2="0%"
-              y2="100%"
-            >
+            <linearGradient id="weld-cool" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
               <stop offset="100%" stopColor="#d8d0ea" />
             </linearGradient>
-            <filter
-              id={`weld-glow-${playId}`}
-              x="-20%"
-              y="-40%"
-              width="140%"
-              height="180%"
-            >
+            <filter id="weld-glow" x="-20%" y="-40%" width="140%" height="180%">
               <feGaussianBlur stdDeviation="3.5" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
@@ -119,10 +82,10 @@ export function WeldSplash() {
             className="weld-bead"
             d={WELD_PATH}
             fill="none"
-            stroke={`url(#weld-molten-${playId})`}
+            stroke="url(#weld-molten)"
             strokeWidth="7"
             strokeLinecap="round"
-            filter={`url(#weld-glow-${playId})`}
+            filter="url(#weld-glow)"
           />
 
           <path
@@ -137,7 +100,7 @@ export function WeldSplash() {
 
           <g className="weld-torch">
             <animateMotion
-              dur="1.45s"
+              dur="0.7s"
               begin="0.15s"
               fill="freeze"
               path={WELD_PATH}
@@ -178,9 +141,9 @@ export function WeldSplash() {
             fontSize="72"
             letterSpacing="-2.5"
             fill="none"
-            stroke={`url(#weld-molten-${playId})`}
+            stroke="url(#weld-molten)"
             strokeWidth="2.4"
-            filter={`url(#weld-glow-${playId})`}
+            filter="url(#weld-glow)"
           >
             Eurotech
           </text>
@@ -193,7 +156,7 @@ export function WeldSplash() {
             fontWeight="800"
             fontSize="72"
             letterSpacing="-2.5"
-            fill={`url(#weld-cool-${playId})`}
+            fill="url(#weld-cool)"
           >
             Eurotech
           </text>
