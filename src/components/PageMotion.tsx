@@ -55,8 +55,84 @@ const SELECTOR = [
   '.site-main img',
 ].join(', ')
 
+const CE_SELECTOR = [
+  '.ce-page .kicker',
+  '.ce-page .hero-lead',
+  '.ce-page .hero-copy',
+  '.ce-page .hero-actions',
+  '.ce-page .ce-hero-points-list',
+  '.ce-page .hero-split-visual',
+  '.ce-page .ce-trust-label',
+  '.ce-page .proof-item',
+  '.ce-page .why-stage-main > *',
+  '.ce-page .why-panel',
+  '.ce-page .stage-head',
+  '.ce-page .ce-card',
+  '.ce-page .ce-category-card',
+  '.ce-page .ce-category-detail > *',
+  '.ce-page .ce-nb-card',
+  '.ce-page .ce-export-copy > *',
+  '.ce-page .ce-export-panel',
+  '.ce-page .ce-export-grid li',
+  '.ce-page .ce-cost-copy > *',
+  '.ce-page .ce-cost-panel',
+  '.ce-page .ce-cost-list li',
+  '.ce-page .ce-deliverables-lead',
+  '.ce-page .ce-deliverables-grid li',
+  '.ce-page .ce-nb-note',
+  '.ce-page .ce-note',
+  '.ce-page .ce-cta-row',
+  '.ce-page .ce-category-more',
+  '.ce-page .faq-item',
+  '.ce-page .enquire-copy > *',
+  '.ce-page .enquire-flow > li',
+  '.ce-page .lead-form',
+].join(', ')
+
 function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+function collectTargets(root: ParentNode, selector: string) {
+  const seen = new Set<HTMLElement>()
+  const targets: HTMLElement[] = []
+  for (const node of root.querySelectorAll<HTMLElement>(selector)) {
+    if (seen.has(node)) continue
+    if (node.closest('.nav-desktop, .nav-mobile, .site-header, .topbar')) continue
+    seen.add(node)
+    targets.push(node)
+  }
+  return targets
+}
+
+function runReveal(targets: HTMLElement[]) {
+  targets.forEach((el, index) => {
+    el.classList.add('anim-ready')
+    el.style.setProperty('--anim-delay', `${Math.min(index % 10, 9) * 45}ms`)
+  })
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue
+        const el = entry.target as HTMLElement
+        el.classList.add('anim-in')
+        observer.unobserve(el)
+      }
+    },
+    { threshold: 0.08, rootMargin: '0px 0px -4% 0px' },
+  )
+
+  for (const el of targets) {
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight * 0.94) {
+      requestAnimationFrame(() => el.classList.add('anim-in'))
+    } else {
+      observer.observe(el)
+    }
+  }
+
+  return observer
 }
 
 export function PageMotion() {
@@ -72,46 +148,29 @@ export function PageMotion() {
 
     if (prefersReducedMotion()) return
 
-    const nodes = Array.from(main.querySelectorAll<HTMLElement>(SELECTOR))
-    const seen = new Set<HTMLElement>()
-    const targets: HTMLElement[] = []
+    const ceRoot = main.querySelector('.ce-page')
+    const targets = ceRoot
+      ? collectTargets(ceRoot, CE_SELECTOR)
+      : collectTargets(main, SELECTOR).filter(
+          (node) => !node.closest('.ce-page'),
+        )
 
-    for (const node of nodes) {
-      if (seen.has(node)) continue
-      if (node.closest('.nav-desktop, .nav-mobile, .site-header, .topbar')) continue
-      if (node.closest('.ce-page')) continue
-      seen.add(node)
-      targets.push(node)
+    const observers: IntersectionObserver[] = [runReveal(targets)]
+
+    const onRefresh = () => {
+      if (!ceRoot) return
+      const next = collectTargets(ceRoot, CE_SELECTOR).filter(
+        (el) => !el.classList.contains('anim-in'),
+      )
+      if (!next.length) return
+      observers.push(runReveal(next))
     }
 
-    targets.forEach((el, index) => {
-      el.classList.add('anim-ready')
-      el.style.setProperty('--anim-delay', `${Math.min(index % 8, 7) * 55}ms`)
-    })
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue
-          const el = entry.target as HTMLElement
-          el.classList.add('anim-in')
-          observer.unobserve(el)
-        }
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
-    )
-
-    for (const el of targets) {
-      const rect = el.getBoundingClientRect()
-      if (rect.top < window.innerHeight * 0.92) {
-        requestAnimationFrame(() => el.classList.add('anim-in'))
-      } else {
-        observer.observe(el)
-      }
-    }
+    window.addEventListener('ce-page-motion-refresh', onRefresh)
 
     return () => {
-      observer.disconnect()
+      for (const observer of observers) observer.disconnect()
+      window.removeEventListener('ce-page-motion-refresh', onRefresh)
       for (const el of targets) {
         el.classList.remove('anim-ready', 'anim-in')
         el.style.removeProperty('--anim-delay')

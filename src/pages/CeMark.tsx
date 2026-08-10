@@ -67,6 +67,14 @@ export function CeMark() {
       ? CE_CATEGORIES.slice(0, 3)
       : CE_CATEGORIES
 
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const timer = window.setTimeout(() => {
+      window.dispatchEvent(new Event('ce-page-motion-refresh'))
+    }, 40)
+    return () => window.clearTimeout(timer)
+  }, [selectedCategory, showAllCategories, visibleCategories.length])
+
   return (
     <div className="ce-page">
       <Seo
