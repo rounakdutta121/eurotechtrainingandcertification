@@ -236,6 +236,7 @@ export function Layout() {
               <div className="footer-col-title">Pages</div>
               <div className="footer-links">
                 <Link to="/">Home</Link>
+                <Link to="/about">About Us</Link>
                 <Link to="/ce-mark">CE Mark</Link>
                 {TRAINING_LINKS.map((link) => (
                   <Link key={link.to} to={link.to}>

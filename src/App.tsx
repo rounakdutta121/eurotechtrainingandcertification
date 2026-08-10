@@ -7,6 +7,7 @@ import { CeMark } from './pages/CeMark'
 import { PlumbingTraining } from './pages/PlumbingTraining'
 import { WeldingTraining } from './pages/WeldingTraining'
 import { PrivacyPolicy } from './pages/PrivacyPolicy'
+import { About } from './pages/About'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
           <Route path="robotic-welding-course" element={<RoboticWelding />} />
           <Route path="ce-mark" element={<CeMark />} />
           <Route path="plumbing-training" element={<PlumbingTraining />} />

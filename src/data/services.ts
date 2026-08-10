@@ -27,6 +27,7 @@ export const TRAINING_LINKS = [
 
 export const NAV_ITEMS: readonly NavItem[] = [
   { to: '/', label: 'Home' },
+  { to: '/about', label: 'About Us' },
   { to: '/ce-mark', label: 'CE Mark' },
   { label: 'Trainings', children: TRAINING_LINKS },
 ] as const
@@ -34,6 +35,7 @@ export const NAV_ITEMS: readonly NavItem[] = [
 /** Flat page links for footer and simple maps */
 export const NAV_LINKS = [
   { to: '/', label: 'Home' },
+  { to: '/about', label: 'About Us' },
   { to: '/ce-mark', label: 'CE Mark' },
   ...TRAINING_LINKS,
 ] as const
