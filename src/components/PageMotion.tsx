@@ -18,6 +18,7 @@ const SELECTOR = [
   '.site-main .proof-bar > *',
   '.site-main .program-card',
   '.site-main .process-step',
+  '.site-main .faq-item',
   '.site-main .metric-tile',
   '.site-main .role-card',
   '.site-main .detail-card',
@@ -78,6 +79,7 @@ export function PageMotion() {
     for (const node of nodes) {
       if (seen.has(node)) continue
       if (node.closest('.nav-desktop, .nav-mobile, .site-header, .topbar')) continue
+      if (node.closest('.ce-page')) continue
       seen.add(node)
       targets.push(node)
     }

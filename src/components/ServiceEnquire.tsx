@@ -5,37 +5,47 @@ type ServiceEnquireProps = {
   defaultService: ServiceOption
   title?: string
   subtitle?: string
+  heading?: string
+  description?: string
+  responseNote?: string
+  steps?: readonly string[]
 }
+
+const DEFAULT_STEPS = [
+  'Share your details — service is pre-selected',
+  'Our admissions team calls you back',
+  'Confirm batch, fees, and joining steps',
+] as const
 
 export function ServiceEnquire({
   defaultService,
   title = 'Start your enquiry',
   subtitle = 'Name, contact, service, and a short message — that is all we need.',
+  heading = 'Tell us what you need',
+  description = 'Fill one short form. Our team will call you with the right program, batch timing, and next steps.',
+  responseNote,
+  steps = DEFAULT_STEPS,
 }: ServiceEnquireProps) {
   return (
     <section className="enquire-stage" id="enquire-section">
       <div className="enquire-stage-inner">
         <div className="enquire-copy">
           <span className="section-label">Enquire</span>
-          <h2>Tell us what you need</h2>
-          <p>
-            Fill one short form. Our team will call you with the right program,
-            batch timing, and next steps.
-          </p>
+          <h2>{heading}</h2>
+          <p>{description}</p>
           <ul className="enquire-flow">
-            <li>
-              <em>1</em>
-              <span>Share your details — service is pre-selected</span>
-            </li>
-            <li>
-              <em>2</em>
-              <span>Our admissions team calls you back</span>
-            </li>
-            <li>
-              <em>3</em>
-              <span>Confirm batch, fees, and joining steps</span>
-            </li>
+            {steps.map((step, index) => (
+              <li key={step}>
+                <em>{index + 1}</em>
+                <span>{step}</span>
+              </li>
+            ))}
           </ul>
+          {responseNote ? (
+            <p className="ce-response-note enquire-response-note">
+              {responseNote}
+            </p>
+          ) : null}
         </div>
         <LeadForm
           defaultService={defaultService}
