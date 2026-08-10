@@ -2,13 +2,17 @@ import { LeadForm } from './LeadForm'
 import type { ServiceOption } from '../data/services'
 
 type ServiceEnquireProps = {
-  defaultService: ServiceOption
+  defaultService?: ServiceOption | string
   title?: string
   subtitle?: string
   heading?: string
   description?: string
   responseNote?: string
   steps?: readonly string[]
+  serviceLabel?: string
+  serviceOptions?: readonly string[]
+  submitLabel?: string
+  privacyNote?: string
 }
 
 const DEFAULT_STEPS = [
@@ -18,13 +22,17 @@ const DEFAULT_STEPS = [
 ] as const
 
 export function ServiceEnquire({
-  defaultService,
+  defaultService = '',
   title = 'Start your enquiry',
   subtitle = 'Name, contact, service, and a short message — that is all we need.',
   heading = 'Tell us what you need',
   description = 'Fill one short form. Our team will call you with the right program, batch timing, and next steps.',
   responseNote,
   steps = DEFAULT_STEPS,
+  serviceLabel,
+  serviceOptions,
+  submitLabel,
+  privacyNote,
 }: ServiceEnquireProps) {
   return (
     <section className="enquire-stage" id="enquire-section">
@@ -51,6 +59,10 @@ export function ServiceEnquire({
           defaultService={defaultService}
           title={title}
           subtitle={subtitle}
+          serviceLabel={serviceLabel}
+          serviceOptions={serviceOptions}
+          submitLabel={submitLabel}
+          privacyNote={privacyNote}
         />
       </div>
     </section>

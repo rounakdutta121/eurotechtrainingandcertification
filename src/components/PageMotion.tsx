@@ -89,6 +89,52 @@ const CE_SELECTOR = [
   '.ce-page .lead-form',
 ].join(', ')
 
+const WELD_SELECTOR = [
+  '.weld-page .kicker',
+  '.weld-page .hero-copy',
+  '.weld-page .hero-actions',
+  '.weld-page .weld-hero-list',
+  '.weld-page .weld-trust-line',
+  '.weld-page .weld-hero-email',
+  '.weld-page .hero-split-visual',
+  '.weld-page .why-stage-main > *',
+  '.weld-page .why-panel',
+  '.weld-page .stage-head',
+  '.weld-page .weld-fact-card',
+  '.weld-page .weld-course',
+  '.weld-page .weld-robotic-rail > *',
+  '.weld-page .weld-robotic-group',
+  '.weld-page .weld-robotic-paths > *',
+  '.weld-page .weld-aws-rail > *',
+  '.weld-page .weld-index-list li',
+  '.weld-page .weld-aws-meta > *',
+  '.weld-page .weld-clarify',
+  '.weld-page .weld-wps-intro > *',
+  '.weld-page .weld-code-list li',
+  '.weld-page .weld-practice-core',
+  '.weld-page .weld-practice-advanced',
+  '.weld-page .weld-material-card',
+  '.weld-page .weld-audience',
+  '.weld-page .weld-eligibility',
+  '.weld-page .weld-careers-head > *',
+  '.weld-page .weld-careers-block',
+  '.weld-page .weld-careers-roles li',
+  '.weld-page .weld-overseas-rail > *',
+  '.weld-page .weld-reason-list li',
+  '.weld-page .weld-timeline li',
+  '.weld-page .weld-gallery-head > *',
+  '.weld-page .weld-gallery-item',
+  '.weld-page .weld-quote-stack blockquote',
+  '.weld-page .weld-cert-rail > *',
+  '.weld-page .weld-ink-note',
+  '.weld-page .weld-note',
+  '.weld-page .weld-cta-row',
+  '.weld-page .faq-item',
+  '.weld-page .enquire-copy > *',
+  '.weld-page .enquire-flow > li',
+  '.weld-page .lead-form',
+].join(', ')
+
 function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
@@ -149,11 +195,14 @@ export function PageMotion() {
     if (prefersReducedMotion()) return
 
     const ceRoot = main.querySelector('.ce-page')
+    const weldRoot = main.querySelector('.weld-page')
     const targets = ceRoot
       ? collectTargets(ceRoot, CE_SELECTOR)
-      : collectTargets(main, SELECTOR).filter(
-          (node) => !node.closest('.ce-page'),
-        )
+      : weldRoot
+        ? collectTargets(weldRoot, WELD_SELECTOR)
+        : collectTargets(main, SELECTOR).filter(
+            (node) => !node.closest('.ce-page, .weld-page'),
+          )
 
     const observers: IntersectionObserver[] = [runReveal(targets)]
 

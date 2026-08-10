@@ -6,9 +6,13 @@ const WEBHOOK =
   'https://damnart-ai-guladab.n8n-wsk.com/webhook/euro-common'
 
 type LeadFormProps = {
-  defaultService?: ServiceOption | ''
+  defaultService?: ServiceOption | string
   title?: string
   subtitle?: string
+  serviceLabel?: string
+  serviceOptions?: readonly string[]
+  submitLabel?: string
+  privacyNote?: string
 }
 
 type FormState = {
@@ -33,6 +37,10 @@ export function LeadForm({
   defaultService = '',
   title = 'Enquire Now',
   subtitle = 'Share your details and our team will contact you shortly.',
+  serviceLabel = 'Service *',
+  serviceOptions = SERVICE_OPTIONS,
+  submitLabel = 'Submit Enquiry',
+  privacyNote,
 }: LeadFormProps) {
   const [form, setForm] = useState<FormState>({
     ...initialState,
@@ -134,7 +142,7 @@ export function LeadForm({
           </div>
         </div>
         <div className="form-field">
-          <label htmlFor="service">Service *</label>
+          <label htmlFor="service">{serviceLabel}</label>
           <select
             id="service"
             name="service"
@@ -142,8 +150,8 @@ export function LeadForm({
             onChange={onChange}
             required
           >
-            <option value="">Select a service</option>
-            {SERVICE_OPTIONS.map((option) => (
+            <option value="">Select a course</option>
+            {serviceOptions.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
@@ -166,8 +174,9 @@ export function LeadForm({
           type="submit"
           disabled={status === 'loading'}
         >
-          {status === 'loading' ? 'Submitting...' : 'Submit Enquiry'}
+          {status === 'loading' ? 'Submitting...' : submitLabel}
         </button>
+        {privacyNote ? <p className="form-privacy">{privacyNote}</p> : null}
         {status === 'ok' && (
           <p className="form-status ok">Thank you. We have received your enquiry.</p>
         )}
