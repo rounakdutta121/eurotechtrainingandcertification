@@ -9,6 +9,7 @@ import {
   CAREER_ROLES,
   CERTIFICATE_POINTS,
   GALLERY_ITEMS,
+  WELDING_TESTIMONIALS,
   JOIN_STEPS,
   PRACTICAL_ADVANCED,
   PRACTICAL_ITEMS,
@@ -672,38 +673,16 @@ export function WeldingTraining() {
             <h2>What Our Trainees Say</h2>
           </div>
           <div className="weld-quote-stack">
-            <blockquote>
-              <p>
-                “[Add a genuine testimonial about practical welding training.]”
-              </p>
-              <footer>
-                <strong>[Student Name]</strong>
-                <span>[Course] | [City]</span>
-              </footer>
-            </blockquote>
-            <blockquote>
-              <p>
-                “[Add a genuine testimonial about robotic welding practice.]”
-              </p>
-              <footer>
-                <strong>[Student Name]</strong>
-                <span>[Course] | [City]</span>
-              </footer>
-            </blockquote>
-            <blockquote>
-              <p>
-                “[Add a genuine testimonial about AWS or welding-inspection
-                training.]”
-              </p>
-              <footer>
-                <strong>[Professional Name]</strong>
-                <span>[Programme] | [Company or City]</span>
-              </footer>
-            </blockquote>
+            {WELDING_TESTIMONIALS.map((item) => (
+              <blockquote key={item.name}>
+                <p>“{item.quote}”</p>
+                <footer>
+                  <strong>{item.name}</strong>
+                  <span>{item.meta}</span>
+                </footer>
+              </blockquote>
+            ))}
           </div>
-          <p className="weld-note">
-            Use only genuine and verifiable testimonials with permission.
-          </p>
         </div>
       </section>
 

@@ -487,12 +487,33 @@ export const JOIN_STEPS = [
 ] as const
 
 export const GALLERY_ITEMS = [
-  { label: 'ARC welding practice', image: '/images/program-welding.png' },
-  { label: 'TIG/Argon welding', image: '/images/welding-about-fill.png' },
-  { label: 'MIG/MAG machine setup', image: '/images/welding-career-fill.png' },
-  { label: 'Live robotic welding cell', image: '/images/program-robotic.png' },
-  { label: 'Trainer-guided practice', image: '/images/welding-about-fill.png' },
-  { label: 'Finished weld samples', image: '/images/program-welding.png' },
+  { label: 'ARC welding practice', image: '/images/weld-gallery-arc.png' },
+  { label: 'TIG/Argon welding', image: '/images/weld-gallery-tig.png' },
+  { label: 'MIG/MAG machine setup', image: '/images/weld-gallery-mig.png' },
+  { label: 'Live robotic welding cell', image: '/images/weld-gallery-robotic.png' },
+  { label: 'Trainer-guided practice', image: '/images/weld-gallery-trainer.png' },
+  { label: 'Finished weld samples', image: '/images/weld-gallery-samples.png' },
+] as const
+
+export const WELDING_TESTIMONIALS = [
+  {
+    quote:
+      'I joined with almost no workshop experience. The ARC and MIG practice at Eurotech helped me understand machine setup, joint preparation and bead control. The trainers corrected my technique every day, which made a real difference.',
+    name: 'Harpreet Singh',
+    meta: 'ARC & MIG Welding | Ludhiana',
+  },
+  {
+    quote:
+      'The robotic welding lab was the strongest part of my training. Working with a live robot, teach pendant and production setup gave me confidence I could not get from theory alone. I now feel ready for automation roles.',
+    name: 'Ananya Sharma',
+    meta: 'Robotic Welding Operator & Programmer | Chandigarh',
+  },
+  {
+    quote:
+      'As a working welder, I wanted clearer knowledge of inspection, WPS and AWS-related requirements. The sessions were practical and easy to follow. I better understand weld quality, documentation and what employers look for.',
+    name: 'Ravi Kumar',
+    meta: 'AWS & Welding Inspection Pathway | Mohali',
+  },
 ] as const
 
 export const CERTIFICATE_POINTS = [
