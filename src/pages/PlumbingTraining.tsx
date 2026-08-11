@@ -2,7 +2,8 @@ import { CrossLinks } from '../components/CrossLinks'
 import { ProofBar } from '../components/ProofBar'
 import { ServiceEnquire } from '../components/ServiceEnquire'
 import { Seo } from '../components/Seo'
-import { CONTACT } from '../data/services'
+const PLUMBING_PHONE = '+91 90567 42701'
+const PLUMBING_PHONE_HREF = 'tel:+919056742701'
 
 const courses = [
   {
@@ -172,7 +173,7 @@ export function PlumbingTraining() {
               <h3>Plot No 146, Sector 82, Mohali</h3>
               <p>JLPL Industrial area, Punjab 140308</p>
               <p>
-                <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
+                <a href={PLUMBING_PHONE_HREF}>{PLUMBING_PHONE}</a>
                 <br />
                 <a href="mailto:eurotechplumbingtraining@gmail.com">
                   eurotechplumbingtraining@gmail.com

@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { CONTACT } from '../data/services'
 
+const PLUMBING_WHATSAPP = 'https://wa.me/919056742701'
+
 export function FloatingActions() {
+  const { pathname } = useLocation()
   const [showTop, setShowTop] = useState(false)
+  const whatsappHref =
+    pathname === '/plumbing-training' ? PLUMBING_WHATSAPP : CONTACT.whatsappHref
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 420)
@@ -19,7 +25,7 @@ export function FloatingActions() {
     <div className="float-actions" aria-label="Quick actions">
       <a
         className="float-btn float-whatsapp"
-        href={CONTACT.whatsappHref}
+        href={whatsappHref}
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
