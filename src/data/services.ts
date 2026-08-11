@@ -65,10 +65,10 @@ export const SERVICE_PAGES = [
     to: '/plumbing-training',
     title: 'Plumbing Training',
     service: 'Plumbing Training' as ServiceOption,
-    outcome: 'IEB UK path · Hands-on Mohali',
+    outcome: '90% practical · Overseas trade-test prep',
     blurb:
-      'Hands-on, industry-focused plumbing training with IEB UK certification pathways in Mohali.',
-    image: '/images/program-plumbing.png',
+      '90% practical plumbing training in Mohali for India and overseas careers, with trade-test preparation and a verifiable Eurotech certificate.',
+    image: '/images/plumbing-campus-fill.png',
     tone: 'plumbing',
   },
   {

@@ -137,6 +137,15 @@ const WELD_SELECTOR = [
   '.weld-page .enquire-copy > *',
   '.weld-page .enquire-flow > li',
   '.weld-page .lead-form',
+  '.weld-page .rw-practice-grid li',
+  '.weld-page .rw-industry-pills li',
+  '.weld-page .rw-who-grid li',
+  '.weld-page .rw-region-places li',
+  '.weld-page .rw-final-copy > *',
+  '.weld-page .pl-chip-row li',
+  '.weld-page .pl-material-card',
+  '.weld-page .pl-fixture-grid li',
+  '.weld-page .pl-task-grid li',
 ].join(', ')
 
 function prefersReducedMotion() {

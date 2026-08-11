@@ -859,7 +859,7 @@ ul {
 
 .service-hero.plumbing .hero-cover-media,
 .service-hero.plumbing .hero-split-frame {
-  background-image: url('/images/program-plumbing.png');
+  background-image: url('/images/plumbing-campus-fill.png');
 }
 
 .service-hero.welding .hero-cover-media,
@@ -4630,6 +4630,19 @@ html.splash-lock body {
   max-width: 44rem;
 }
 
+.content-stage.ink .weld-reason-list li,
+.content-stage.ink .weld-reason-list li:first-child {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.content-stage.ink .weld-reason-list h3 {
+  color: #fff;
+}
+
+.content-stage.ink .weld-reason-list p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .weld-timeline {
   list-style: none;
   margin: 0;
@@ -5183,23 +5196,28 @@ html.splash-lock body {
   color: var(--orange-soft);
 }
 
-.rw-page .programs-stage {
+.rw-page .programs-stage,
+.pl-page .programs-stage {
   background: var(--purple);
 }
 
-.rw-page .programs-stage-head h2 {
+.rw-page .programs-stage-head h2,
+.pl-page .programs-stage-head h2 {
   color: #fff;
 }
 
-.rw-page .programs-stage-head p {
+.rw-page .programs-stage-head p,
+.pl-page .programs-stage-head p {
   color: rgba(255, 255, 255, 0.78);
 }
 
-.rw-page .program-card {
+.rw-page .program-card,
+.pl-page .program-card {
   background: #fff;
 }
 
-.rw-page .program-card h3 {
+.rw-page .program-card h3,
+.pl-page .program-card h3 {
   color: var(--ink);
 }
 
@@ -5518,5 +5536,245 @@ html.splash-lock body {
     grid-template-columns: minmax(17rem, 1fr) minmax(0, 0.95fr);
     gap: 3rem;
     align-items: stretch;
+  }
+}
+
+/* —— Plumbing Training page —— */
+.weld-eligibility .check-list li {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.pl-chip-row {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.pl-chip-row li {
+  padding: 0.55rem 0.9rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.content-stage.alt .pl-chip-row li {
+  background: #fff;
+}
+
+.content-stage.ink .pl-chip-row li {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.content-stage.ink .weld-eligibility {
+  background: #fff;
+  color: var(--ink);
+}
+
+.content-stage.ink .weld-eligibility h3 {
+  color: var(--ink);
+}
+
+.content-stage.ink .weld-eligibility p {
+  color: var(--ink-soft);
+}
+
+.content-stage.ink .weld-eligibility .check-list li {
+  color: var(--ink-soft);
+}
+
+.pl-material-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.pl-material-card {
+  display: grid;
+  gap: 0.45rem;
+  min-height: 100%;
+  padding: 1.25rem 1.2rem;
+  background: var(--purple);
+  border-radius: var(--radius-sm);
+  color: #fff;
+}
+
+.pl-material-card span {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--orange-soft);
+}
+
+.pl-material-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.pl-material-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.pl-fixture-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+
+.pl-fixture-grid li {
+  padding: 0.8rem 0.95rem;
+  background: #fff;
+  border-left: 3px solid var(--orange);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.pl-page .rw-region-rail .weld-cta-row,
+.pl-page .rw-final-copy .weld-cta-row {
+  justify-content: flex-start;
+}
+
+.pl-page .why-panel .visit-panel p a {
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.pl-require-panel {
+  margin-top: 1.25rem;
+  padding: 1.15rem 1.15rem 1.25rem;
+  background: #fff;
+  border-radius: var(--radius-sm);
+}
+
+.pl-require-panel .weld-block-label {
+  color: var(--orange);
+}
+
+.pl-require-panel .rw-industry-pills {
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.pl-require-panel .rw-industry-pills li {
+  background: var(--paper-2);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.pl-hero-lists {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem 1.25rem;
+  margin: 0.85rem 0 0.35rem;
+}
+
+.pl-hero-list-label {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.pl-page .pl-hero-lists .weld-hero-list {
+  margin: 0;
+  max-width: none;
+  gap: 0.22rem;
+}
+
+.pl-page .pl-hero-lists .weld-hero-list li {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  padding-left: 1.05rem;
+}
+
+.pl-page .pl-hero-lists .weld-hero-list li::before {
+  top: 0.38rem;
+  width: 0.4rem;
+  height: 0.4rem;
+}
+
+.pl-task-grid {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem 0.85rem;
+}
+
+.pl-task-grid li {
+  display: grid;
+  grid-template-columns: 1.7rem 1fr;
+  gap: 0.45rem;
+  align-items: start;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.pl-task-grid li span {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--orange);
+  padding-top: 0.12rem;
+}
+
+.pl-page .why-stage-main .weld-two-col {
+  margin-top: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .pl-hero-lists {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: start;
+  }
+
+  .pl-task-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 640px) {
+  .pl-material-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pl-fixture-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .pl-material-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .pl-fixture-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

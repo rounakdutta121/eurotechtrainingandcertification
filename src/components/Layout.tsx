@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { CONTACT, NAV_ITEMS, TRAINING_LINKS } from '../data/services'
+import {
+  PL_ADDRESS,
+  PL_PHONE_DISPLAY,
+  PL_PHONE_HREF,
+} from '../data/plumbingTrainingContent'
 import { PageMotion } from './PageMotion'
 import { FloatingActions } from './FloatingActions'
 
@@ -10,6 +15,10 @@ export function Layout() {
   const [desktopTrainingsOpen, setDesktopTrainingsOpen] = useState(false)
   const desktopDropdownRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
+  const isPlumbing = location.pathname === '/plumbing-training'
+  const pagePhone = isPlumbing ? PL_PHONE_DISPLAY : CONTACT.phone
+  const pagePhoneHref = isPlumbing ? PL_PHONE_HREF : CONTACT.phoneHref
+  const pageAddress = isPlumbing ? PL_ADDRESS : CONTACT.address
   const close = () => {
     setOpen(false)
     setTrainingsOpen(false)
@@ -57,11 +66,11 @@ export function Layout() {
       <div className="topbar">
         <div className="topbar-inner">
           <div className="topbar-contact">
-            <a href={CONTACT.phoneHref}>
+            <a href={pagePhoneHref}>
               <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
                 <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" />
               </svg>
-              {CONTACT.phone}
+              {pagePhone}
             </a>
             <a href={CONTACT.emailHref}>
               <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
@@ -204,8 +213,8 @@ export function Layout() {
           <a href="#enquire" onClick={close}>
             Enquire Now
           </a>
-          <a href={CONTACT.phoneHref} onClick={close}>
-            Call {CONTACT.phone}
+          <a href={pagePhoneHref} onClick={close}>
+            Call {pagePhone}
           </a>
         </nav>
       </header>
@@ -224,9 +233,9 @@ export function Layout() {
                 Eurotech Assessment and Certification Services Pvt. Ltd. —
                 practical vocational training and certification since 2008.
               </p>
-              <p>{CONTACT.address}</p>
+              <p>{pageAddress}</p>
               <p>
-                <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
+                <a href={pagePhoneHref}>{pagePhone}</a>
                 <br />
                 <a href={CONTACT.emailHref}>{CONTACT.email}</a>
               </p>

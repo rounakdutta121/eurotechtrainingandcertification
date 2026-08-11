@@ -1,9 +1,10 @@
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 import { SERVICE_OPTIONS, type ServiceOption } from '../data/services'
+import { getAdAttributionPayload } from '../lib/adAttribution'
 
 const WEBHOOK =
   import.meta.env.VITE_FORM_WEBHOOK ||
-  'https://damnart-ai-guladab.n8n-wsk.com/webhook/euro-common'
+  'https://script.google.com/macros/s/AKfycbxhhZT3wY3MvFgo5erWH6DtwMzeaLwDTCDe44vxuHBIJYfUph1Mvoq89tzfXoUOi_iO/exec'
 
 type LeadFormProps = {
   defaultService?: ServiceOption | string
@@ -72,13 +73,15 @@ export function LeadForm({
     const payload = {
       ...form,
       timestamp: new Date().toISOString(),
+      ...getAdAttributionPayload(),
     }
 
     try {
       const res = await fetch(WEBHOOK, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload),
+        redirect: 'follow',
       })
       if (!res.ok) throw new Error('Submission failed')
       setStatus('ok')
