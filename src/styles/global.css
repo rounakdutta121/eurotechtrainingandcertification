@@ -4753,6 +4753,23 @@ html.splash-lock body {
   color: var(--ink-soft);
 }
 
+.content-stage.ink .weld-quote-stack {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.content-stage.ink .weld-quote-stack blockquote {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.content-stage.ink .weld-quote-stack p,
+.content-stage.ink .weld-quote-stack footer strong {
+  color: #fff;
+}
+
+.content-stage.ink .weld-quote-stack footer span {
+  color: rgba(255, 255, 255, 0.65);
+}
+
 .weld-robotic {
   display: grid;
   gap: 2.25rem;
@@ -5017,6 +5034,15 @@ html.splash-lock body {
     padding-right: 0;
   }
 
+  .content-stage.ink .weld-quote-stack {
+    border-top-color: rgba(255, 255, 255, 0.16);
+    border-bottom-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .content-stage.ink .weld-quote-stack blockquote {
+    border-right-color: rgba(255, 255, 255, 0.16);
+  }
+
   .weld-gallery-head {
     grid-template-columns: 1fr auto;
   }
@@ -5051,5 +5077,446 @@ html.splash-lock body {
 
   .weld-course-body {
     padding-left: 0.15rem;
+  }
+}
+
+/* —— Robotic Welding page —— */
+.rw-practice-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+
+.rw-practice-grid li {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.65rem;
+  align-items: start;
+  padding: 0.85rem 0.95rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.rw-practice-grid li span {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--orange-soft);
+  padding-top: 0.12rem;
+}
+
+.rw-pathways {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.rw-pathways article {
+  padding: 1.25rem 1.2rem;
+  background: #fff;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+}
+
+.content-stage.ink .rw-pathways h3 {
+  color: var(--ink);
+}
+
+.content-stage.ink .rw-pathways p {
+  color: var(--ink-soft);
+}
+
+.rw-pathways span {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--orange);
+  margin-bottom: 0.4rem;
+}
+
+.rw-pathways h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.rw-pathways p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.rw-industry-label {
+  text-align: center;
+}
+
+.rw-industry-pills {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.rw-industry-pills li {
+  padding: 0.55rem 0.9rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.content-stage.ink .rw-industry-label {
+  color: var(--orange-soft);
+}
+
+.rw-page .programs-stage {
+  background: var(--purple);
+}
+
+.rw-page .programs-stage-head h2 {
+  color: #fff;
+}
+
+.rw-page .programs-stage-head p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.rw-page .program-card {
+  background: #fff;
+}
+
+.rw-page .program-card h3 {
+  color: var(--ink);
+}
+
+.rw-announce {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem 1.25rem;
+  padding: 0.85rem var(--pad);
+  background: var(--purple);
+  color: #fff;
+}
+
+.rw-announce p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.rw-announce-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.rw-announce .btn-outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.rw-announce .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: #fff;
+}
+
+.weld-ink-lead {
+  margin: 0 auto 0.85rem;
+  max-width: 48rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.weld-ink-list li {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.rw-quality-bands {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.rw-quality-bands .weld-block-label {
+  color: var(--orange-soft);
+}
+
+.rw-quality-bands .rw-industry-pills {
+  justify-content: flex-start;
+}
+
+.rw-corporate {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.rw-corporate-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.35rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.rw-corporate-panel.is-ink {
+  background: var(--purple);
+  border-color: transparent;
+}
+
+.rw-corporate-panel.is-ink .weld-block-label {
+  color: var(--orange-soft);
+}
+
+.rw-corporate-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  flex: 1;
+  align-content: stretch;
+}
+
+.rw-corporate-cards li {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0.9rem;
+  background: var(--paper-2);
+  border-radius: 10px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.rw-corporate-panel.is-ink .rw-corporate-cards li {
+  background: #fff;
+}
+
+.rw-who-grid {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+}
+
+.rw-who-grid li {
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--orange);
+  background: var(--paper-2);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.weld-overseas.rw-region {
+  color: var(--ink);
+  align-items: stretch;
+}
+
+.rw-region-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.35rem 1.25rem;
+  background: var(--purple);
+  border-radius: var(--radius);
+}
+
+.rw-region-card .weld-block-label {
+  color: var(--orange-soft);
+}
+
+.rw-region-places {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.55rem;
+  flex: 1;
+  align-content: stretch;
+}
+
+.rw-region-places li {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0.9rem;
+  background: #fff;
+  border-radius: 10px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.rw-region-rail h2,
+.rw-region-rail .section-label {
+  color: inherit;
+}
+
+.rw-region-rail h2 {
+  color: var(--ink);
+}
+
+.rw-region-rail > p {
+  color: var(--ink-soft);
+}
+
+.rw-career-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.rw-career-card {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.rw-career-card:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.rw-career-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.rw-career-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.rw-final {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.rw-final-copy .section-label {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+}
+
+.rw-final-copy h2 {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+  line-height: 1.15;
+  text-align: left;
+}
+
+.rw-final-lead {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.rw-final-copy > p {
+  margin: 0 0 0.85rem;
+  color: var(--ink-soft);
+}
+
+.rw-final-copy .weld-cta-row {
+  justify-content: flex-start;
+}
+
+.rw-page .weld-ink-note a {
+  color: #fff;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .rw-practice-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rw-pathways {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+
+  .rw-who-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rw-corporate {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+    align-items: stretch;
+  }
+
+  .rw-final {
+    grid-template-columns: minmax(17rem, 1.1fr) minmax(0, 0.9fr);
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  .rw-career-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .rw-practice-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rw-fact-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .rw-param-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .rw-quality-bands {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .rw-who-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rw-region-places {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rw-region {
+    grid-template-columns: minmax(17rem, 1fr) minmax(0, 0.95fr);
+    gap: 3rem;
+    align-items: stretch;
   }
 }

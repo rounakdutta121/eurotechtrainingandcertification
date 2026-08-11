@@ -13,6 +13,8 @@ type LeadFormProps = {
   serviceOptions?: readonly string[]
   submitLabel?: string
   privacyNote?: string
+  experienceLabel?: string
+  experienceOptions?: readonly string[]
 }
 
 type FormState = {
@@ -22,6 +24,7 @@ type FormState = {
   service: string
   location: string
   message: string
+  experience: string
 }
 
 const initialState: FormState = {
@@ -31,6 +34,7 @@ const initialState: FormState = {
   service: '',
   location: '',
   message: '',
+  experience: '',
 }
 
 export function LeadForm({
@@ -41,6 +45,8 @@ export function LeadForm({
   serviceOptions = SERVICE_OPTIONS,
   submitLabel = 'Submit Enquiry',
   privacyNote,
+  experienceLabel = 'Experience',
+  experienceOptions,
 }: LeadFormProps) {
   const [form, setForm] = useState<FormState>({
     ...initialState,
@@ -158,6 +164,25 @@ export function LeadForm({
             ))}
           </select>
         </div>
+        {experienceOptions?.length ? (
+          <div className="form-field">
+            <label htmlFor="experience">{experienceLabel}</label>
+            <select
+              id="experience"
+              name="experience"
+              value={form.experience}
+              onChange={onChange}
+              required
+            >
+              <option value="">Select your background</option>
+              {experienceOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+        ) : null}
         <div className="form-field">
           <label htmlFor="message">Message *</label>
           <textarea

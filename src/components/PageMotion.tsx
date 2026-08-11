@@ -90,6 +90,7 @@ const CE_SELECTOR = [
 ].join(', ')
 
 const WELD_SELECTOR = [
+  '.weld-page .rw-announce',
   '.weld-page .kicker',
   '.weld-page .hero-copy',
   '.weld-page .hero-actions',
@@ -101,6 +102,9 @@ const WELD_SELECTOR = [
   '.weld-page .why-panel',
   '.weld-page .stage-head',
   '.weld-page .weld-fact-card',
+  '.weld-page .rw-career-card',
+  '.weld-page .rw-who-grid li',
+  '.weld-page .rw-safety-grid > *',
   '.weld-page .weld-course',
   '.weld-page .weld-robotic-rail > *',
   '.weld-page .weld-robotic-group',

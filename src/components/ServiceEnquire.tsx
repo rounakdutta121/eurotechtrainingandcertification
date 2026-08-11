@@ -13,6 +13,8 @@ type ServiceEnquireProps = {
   serviceOptions?: readonly string[]
   submitLabel?: string
   privacyNote?: string
+  experienceLabel?: string
+  experienceOptions?: readonly string[]
 }
 
 const DEFAULT_STEPS = [
@@ -33,6 +35,8 @@ export function ServiceEnquire({
   serviceOptions,
   submitLabel,
   privacyNote,
+  experienceLabel,
+  experienceOptions,
 }: ServiceEnquireProps) {
   return (
     <section className="enquire-stage" id="enquire-section">
@@ -63,6 +67,8 @@ export function ServiceEnquire({
           serviceOptions={serviceOptions}
           submitLabel={submitLabel}
           privacyNote={privacyNote}
+          experienceLabel={experienceLabel}
+          experienceOptions={experienceOptions}
         />
       </div>
     </section>
