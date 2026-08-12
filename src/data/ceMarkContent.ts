@@ -479,6 +479,15 @@ export const CE_QUOTE_INCLUDES = [
   'Product-specific quotation',
 ] as const
 
+export const CE_SERVICE_OPTIONS = [
+  'CE for Medical Devices',
+  'CE for Electrical/Electronics',
+  'CE for Pressure',
+  'CE for Construction',
+  'CE for Machine',
+  'Other',
+] as const
+
 export const CE_FAQS = [
   {
     q: 'What is CE certification?',

@@ -11,6 +11,7 @@ type ServiceEnquireProps = {
   steps?: readonly string[]
   serviceLabel?: string
   serviceOptions?: readonly string[]
+  servicePlaceholder?: string
   submitLabel?: string
   privacyNote?: string
   experienceLabel?: string
@@ -33,6 +34,7 @@ export function ServiceEnquire({
   steps = DEFAULT_STEPS,
   serviceLabel,
   serviceOptions,
+  servicePlaceholder,
   submitLabel,
   privacyNote,
   experienceLabel,
@@ -65,6 +67,7 @@ export function ServiceEnquire({
           subtitle={subtitle}
           serviceLabel={serviceLabel}
           serviceOptions={serviceOptions}
+          servicePlaceholder={servicePlaceholder}
           submitLabel={submitLabel}
           privacyNote={privacyNote}
           experienceLabel={experienceLabel}

@@ -13,6 +13,7 @@ import {
   CE_EXPORT_SUPPORT,
   CE_FAQS,
   CE_HERO_POINTS,
+  CE_SERVICE_OPTIONS,
   CE_INTRO_HELPS,
   CE_NOTIFIED_BODIES,
   CE_PROCESS,
@@ -566,12 +567,15 @@ export function CeMark() {
       </section>
 
       <ServiceEnquire
-        defaultService="CE Mark Certification"
+        defaultService=""
         heading="Tell Us About Your Product"
         description="Share your product details and receive a clear understanding of the likely compliance pathway, timeline and cost."
         title="Get a CE Marking Quote"
         subtitle="Use the form below — our team will respond within one business day."
         responseNote="Our team will respond within one business day."
+        serviceLabel="Industry *"
+        serviceOptions={CE_SERVICE_OPTIONS}
+        servicePlaceholder="Select an Industry"
         steps={[
           'Share your product and contact details',
           'We review the likely compliance pathway',

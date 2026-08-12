@@ -14,6 +14,7 @@ type LeadFormProps = {
   subtitle?: string
   serviceLabel?: string
   serviceOptions?: readonly string[]
+  servicePlaceholder?: string
   submitLabel?: string
   privacyNote?: string
   experienceLabel?: string
@@ -46,6 +47,7 @@ export function LeadForm({
   subtitle = 'Share your details and our team will contact you shortly.',
   serviceLabel = 'Service *',
   serviceOptions = SERVICE_OPTIONS,
+  servicePlaceholder = 'Select a course',
   submitLabel = 'Submit Enquiry',
   privacyNote,
   experienceLabel = 'Experience',
@@ -97,7 +99,7 @@ export function LeadForm({
     <div className="lead-form" id="enquire">
       <h2>{title}</h2>
       <p>{subtitle}</p>
-      <form className="form-grid" onSubmit={onSubmit} noValidate>
+      <form className="form-grid" onSubmit={onSubmit}>
         <div className="form-grid two">
           <div className="form-field">
             <label htmlFor="name">Name *</label>
@@ -161,7 +163,9 @@ export function LeadForm({
             onChange={onChange}
             required
           >
-            <option value="">Select a course</option>
+            <option value="" disabled>
+              {servicePlaceholder}
+            </option>
             {serviceOptions.map((option) => (
               <option key={option} value={option}>
                 {option}
