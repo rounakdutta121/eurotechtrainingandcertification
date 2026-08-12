@@ -1,6 +1,7 @@
 'use client'
 
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { SERVICE_OPTIONS, type ServiceOption } from '../data/services'
 import { getAdAttributionPayload } from '../lib/adAttribution'
 
@@ -53,6 +54,7 @@ export function LeadForm({
   experienceLabel = 'Experience',
   experienceOptions,
 }: LeadFormProps) {
+  const router = useRouter()
   const [form, setForm] = useState<FormState>({
     ...initialState,
     service: defaultService,
@@ -90,6 +92,7 @@ export function LeadForm({
       if (!res.ok) throw new Error('Submission failed')
       setStatus('ok')
       setForm({ ...initialState, service: defaultService })
+      router.push('/thank-you')
     } catch {
       setStatus('err')
     }
