@@ -83,13 +83,15 @@ export function LeadForm({
     }
 
     try {
-      const res = await fetch(WEBHOOK, {
+      // Apps Script often follows with a cross-origin redirect/CORS response
+      // after a successful write. Prefer no-cors so the browser does not treat
+      // that as a failed submission once the email has already been sent.
+      await fetch(WEBHOOK, {
         method: 'POST',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(payload),
-        redirect: 'follow',
+        mode: 'no-cors',
       })
-      if (!res.ok) throw new Error('Submission failed')
       setStatus('ok')
       setForm({ ...initialState, service: defaultService })
       router.push('/thank-you')
