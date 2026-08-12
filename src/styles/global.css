@@ -710,6 +710,7 @@ ul {
   max-width: none;
   margin: 0;
   padding-left: var(--pad);
+  padding-right: var(--pad);
 }
 
 .hero-split-copy,
@@ -2659,7 +2660,7 @@ button.dir-row {
 }
 
 .hero-split-copy {
-  padding-right: var(--pad);
+  padding-right: 0;
 }
 
 .hero-split-visual,
@@ -2668,15 +2669,17 @@ button.dir-row {
 }
 
 .hero-split-visual {
-  border-radius: 2.75rem 0 0 2.25rem;
-  padding: 0 0 10px 10px;
+  border-radius: 1.35rem;
+  padding: 10px;
   min-height: 240px;
   margin-left: 0;
+  margin-right: 0;
   width: 100%;
+  justify-self: center;
 }
 
 .hero-split-frame {
-  border-radius: 2.35rem 0 0 1.9rem;
+  border-radius: 1.1rem;
   min-height: 230px;
 }
 
@@ -2847,13 +2850,13 @@ button.dir-row {
   }
 
   .hero-split-visual {
-    border-radius: 4rem 0 0 3.25rem;
-    padding: 0 0 12px 12px;
+    border-radius: 1.5rem;
+    padding: 12px;
     min-height: 300px;
   }
 
   .hero-split-frame {
-    border-radius: 3.5rem 0 0 2.75rem;
+    border-radius: 1.2rem;
     min-height: 288px;
   }
 
@@ -2873,6 +2876,7 @@ button.dir-row {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
     gap: 1.25rem;
     align-items: center;
+    padding-right: 0;
   }
 
   .hero-split-visual,
@@ -2886,6 +2890,7 @@ button.dir-row {
     min-height: 360px;
     align-self: stretch;
     border-radius: 5.5rem 0 0 4.5rem;
+    padding: 0 0 12px 12px;
   }
 
   .hero-split-frame {
