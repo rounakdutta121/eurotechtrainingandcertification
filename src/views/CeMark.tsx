@@ -114,8 +114,8 @@ export function CeMark() {
               <a className="btn btn-primary" href="#enquire">
                 Get a CE Marking Quote
               </a>
-              <a className="btn btn-outline" href={CONTACT.phoneHref}>
-                Speak to a CE Specialist
+              <a className="btn btn-outline" href="#enquire">
+                Get a Free Consultation
               </a>
             </div>
             <ul className="check-list ce-hero-points-list">
@@ -449,8 +449,8 @@ export function CeMark() {
             ))}
           </div>
           <SectionCta
-            label="Speak to a CE Specialist"
-            href={CONTACT.phoneHref}
+            label="Get a Free Consultation"
+            href="#enquire"
           />
         </div>
       </section>
@@ -530,8 +530,8 @@ export function CeMark() {
               <a className="btn btn-primary" href="#enquire">
                 Get a CE Marking Quote
               </a>
-              <a className="btn btn-outline" href={CONTACT.phoneHref}>
-                Speak to a CE Specialist
+              <a className="btn btn-outline" href="#enquire">
+                Get a Free Consultation
               </a>
             </div>
           </div>
