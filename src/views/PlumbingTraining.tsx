@@ -1,3 +1,5 @@
+'use client'
+
 import { CrossLinks } from '../components/CrossLinks'
 import { ServiceEnquire } from '../components/ServiceEnquire'
 import { Seo } from '../components/Seo'

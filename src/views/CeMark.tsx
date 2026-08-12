@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import { ProofBar } from '../components/ProofBar'
 import { ServiceEnquire } from '../components/ServiceEnquire'
@@ -134,7 +136,7 @@ export function CeMark() {
 
       <div className="ce-trust-band">
         <p className="ce-trust-label">
-          Certification, Testing and Compliance Support Since 2008
+          Certification, Testing and Compliance Support
         </p>
         <ProofBar
           label="Trust highlights"
@@ -143,11 +145,6 @@ export function CeMark() {
               icon: 'people',
               title: '5,000+ Clients',
               subtitle: 'Across multiple industries',
-            },
-            {
-              icon: 'shield',
-              title: 'NABL Laboratory',
-              subtitle: 'Scope of NABL TC-6601',
             },
             {
               icon: 'globe',
@@ -217,78 +214,7 @@ export function CeMark() {
         </div>
       </section>
 
-      <section className="content-stage" id="services">
-        <div className="shell">
-          <div className="stage-head">
-            <span className="section-label">Services</span>
-            <h2>End-to-End CE Marking Certification Support</h2>
-          </div>
-          <div className="ce-card-grid">
-            {CE_SERVICES.map((service, index) => (
-              <article className="ce-card" key={service.title}>
-                <span className="ce-card-index">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-                {'items' in service && service.items ? (
-                  <details className="ce-card-details">
-                    <summary>View details</summary>
-                    <ul>
-                      {service.items.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  </details>
-                ) : null}
-              </article>
-            ))}
-          </div>
-          <SectionCta
-            label="Discuss My Product with a CE Specialist"
-            href={CONTACT.phoneHref}
-          />
-        </div>
-      </section>
-
-      <section className="content-stage ink ce-export-stage" id="export">
-        <div className="shell ce-export-split">
-          <div className="ce-export-copy">
-            <span className="section-label">Export Support</span>
-            <h2>CE Certification for Export to Europe</h2>
-            <p>
-              Products manufactured in India may require CE marking when they
-              are placed on the EU or EEA market. The manufacturing country does
-              not remove the manufacturer’s responsibility to comply with
-              applicable European product legislation.
-            </p>
-            <p>
-              Avoid unnecessary testing or incomplete documentation by confirming
-              the correct regulatory pathway at the beginning of your project.
-            </p>
-            <div className="ce-cta-row ce-cta-row-start">
-              <a className="btn btn-primary" href="#enquire">
-                Prepare My Product for European Export
-              </a>
-            </div>
-          </div>
-          <div className="ce-export-panel">
-            <p className="ce-export-panel-label">
-              Eurotech supports exporters with:
-            </p>
-            <ul className="ce-export-grid">
-              {CE_EXPORT_SUPPORT.map((item, index) => (
-                <li key={item}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="content-stage" id="categories">
+      <section className="content-stage ink" id="categories">
         <div className="shell">
           <div className="stage-head">
             <span className="section-label">Product Categories</span>
@@ -390,7 +316,78 @@ export function CeMark() {
         </div>
       </section>
 
-      <section className="content-stage ink" id="process">
+      <section className="content-stage" id="services">
+        <div className="shell">
+          <div className="stage-head">
+            <span className="section-label">Services</span>
+            <h2>End-to-End CE Marking Certification Support</h2>
+          </div>
+          <div className="ce-card-grid">
+            {CE_SERVICES.map((service, index) => (
+              <article className="ce-card" key={service.title}>
+                <span className="ce-card-index">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+                {'items' in service && service.items ? (
+                  <details className="ce-card-details">
+                    <summary>View details</summary>
+                    <ul>
+                      {service.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </details>
+                ) : null}
+              </article>
+            ))}
+          </div>
+          <SectionCta
+            label="Discuss My Product with a CE Specialist"
+            href={CONTACT.phoneHref}
+          />
+        </div>
+      </section>
+
+      <section className="content-stage ink ce-export-stage" id="export">
+        <div className="shell ce-export-split">
+          <div className="ce-export-copy">
+            <span className="section-label">Export Support</span>
+            <h2>CE Certification for Export to Europe</h2>
+            <p>
+              Products manufactured in India may require CE marking when they
+              are placed on the EU or EEA market. The manufacturing country does
+              not remove the manufacturer’s responsibility to comply with
+              applicable European product legislation.
+            </p>
+            <p>
+              Avoid unnecessary testing or incomplete documentation by confirming
+              the correct regulatory pathway at the beginning of your project.
+            </p>
+            <div className="ce-cta-row ce-cta-row-start">
+              <a className="btn btn-primary" href="#enquire">
+                Prepare My Product for European Export
+              </a>
+            </div>
+          </div>
+          <div className="ce-export-panel">
+            <p className="ce-export-panel-label">
+              Eurotech supports exporters with:
+            </p>
+            <ul className="ce-export-grid">
+              {CE_EXPORT_SUPPORT.map((item, index) => (
+                <li key={item}>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="content-stage" id="process">
         <div className="shell">
           <div className="stage-head">
             <span className="section-label">Process</span>
@@ -398,7 +395,7 @@ export function CeMark() {
           </div>
           <div className="ce-card-grid ce-process-grid">
             {CE_PROCESS.map((step, index) => (
-              <article className="ce-card ce-card-ink" key={step.title}>
+              <article className="ce-card" key={step.title}>
                 <span className="ce-card-index">
                   {String(index + 1).padStart(2, '0')}
                 </span>
@@ -411,7 +408,7 @@ export function CeMark() {
         </div>
       </section>
 
-      <section className="content-stage" id="deliverables">
+      <section className="content-stage ink" id="deliverables">
         <div className="shell">
           <div className="stage-head">
             <span className="section-label">Deliverables</span>

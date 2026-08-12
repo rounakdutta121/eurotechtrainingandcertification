@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { Seo } from '../components/Seo'
 import { CONTACT } from '../data/services'
 
@@ -233,8 +235,8 @@ export function PrivacyPolicy() {
               </p>
               <p>
                 You can also return to the{' '}
-                <Link to="/">home page</Link> or{' '}
-                <Link to="/#enquire">submit an enquiry</Link>.
+                <Link href="/">home page</Link> or{' '}
+                <Link href="/#enquire">submit an enquiry</Link>.
               </p>
             </section>
           </div>

@@ -1,9 +1,11 @@
+'use client'
+
 import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
 import { SERVICE_OPTIONS, type ServiceOption } from '../data/services'
 import { getAdAttributionPayload } from '../lib/adAttribution'
 
 const WEBHOOK =
-  import.meta.env.VITE_FORM_WEBHOOK ||
+  process.env.NEXT_PUBLIC_FORM_WEBHOOK ||
   'https://script.google.com/macros/s/AKfycbxhhZT3wY3MvFgo5erWH6DtwMzeaLwDTCDe44vxuHBIJYfUph1Mvoq89tzfXoUOi_iO/exec'
 
 type LeadFormProps = {

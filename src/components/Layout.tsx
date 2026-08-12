@@ -1,21 +1,25 @@
-import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
+'use client'
+
+import { useEffect, useRef, useState, type ReactNode } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { CONTACT, NAV_ITEMS, TRAINING_LINKS } from '../data/services'
 import {
   PL_ADDRESS,
   PL_PHONE_DISPLAY,
   PL_PHONE_HREF,
 } from '../data/plumbingTrainingContent'
+import { NavLink } from './NavLink'
 import { PageMotion } from './PageMotion'
 import { FloatingActions } from './FloatingActions'
 
-export function Layout() {
+export function Layout({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false)
   const [trainingsOpen, setTrainingsOpen] = useState(false)
   const [desktopTrainingsOpen, setDesktopTrainingsOpen] = useState(false)
   const desktopDropdownRef = useRef<HTMLDivElement>(null)
-  const location = useLocation()
-  const isPlumbing = location.pathname === '/plumbing-training'
+  const pathname = usePathname()
+  const isPlumbing = pathname === '/plumbing-training'
   const pagePhone = isPlumbing ? PL_PHONE_DISPLAY : CONTACT.phone
   const pagePhoneHref = isPlumbing ? PL_PHONE_HREF : CONTACT.phoneHref
   const pageAddress = isPlumbing ? PL_ADDRESS : CONTACT.address
@@ -24,13 +28,13 @@ export function Layout() {
     setTrainingsOpen(false)
   }
 
-  const trainingActive = TRAINING_LINKS.some((link) => link.to === location.pathname)
+  const trainingActive = TRAINING_LINKS.some((link) => link.to === pathname)
 
   useEffect(() => {
     setOpen(false)
     setTrainingsOpen(false)
     setDesktopTrainingsOpen(false)
-  }, [location.pathname])
+  }, [pathname])
 
   useEffect(() => {
     if (!desktopTrainingsOpen) return
@@ -65,12 +69,8 @@ export function Layout() {
 
       <header className="site-header">
         <div className="header-inner">
-          <Link to="/" className="brand" onClick={close}>
-            <img src={CONTACT.logo} alt="Eurotech logo" width={48} height={48} />
-            <div className="brand-text">
-              <strong>Eurotech</strong>
-              <span>Training & Certification</span>
-            </div>
+          <Link href="/" className="brand" onClick={close}>
+            <img src={CONTACT.logo} alt="Eurotech logo" width={160} height={48} />
           </Link>
 
           <nav className="nav-desktop" aria-label="Primary">
@@ -100,7 +100,7 @@ export function Layout() {
                       {item.children.map((child) => (
                         <NavLink
                           key={child.to}
-                          to={child.to}
+                          href={child.to}
                           role="menuitem"
                           className={({ isActive }) => (isActive ? 'active' : undefined)}
                           onClick={() => setDesktopTrainingsOpen(false)}
@@ -114,7 +114,7 @@ export function Layout() {
               ) : (
                 <NavLink
                   key={item.to}
-                  to={item.to}
+                  href={item.to}
                   end={item.to === '/'}
                   className={({ isActive }) => (isActive ? 'active' : undefined)}
                 >
@@ -131,13 +131,18 @@ export function Layout() {
           </div>
 
           <button
-            className="menu-btn"
+            className={`menu-btn${open ? ' is-open' : ''}`}
             type="button"
             aria-expanded={open}
             aria-controls="mobile-nav"
+            aria-label={open ? 'Close menu' : 'Open menu'}
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? 'Close' : 'Menu'}
+            <span className="menu-btn-icon" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
           </button>
         </div>
 
@@ -164,7 +169,7 @@ export function Layout() {
                   {item.children.map((child) => (
                     <NavLink
                       key={child.to}
-                      to={child.to}
+                      href={child.to}
                       className={({ isActive }) => (isActive ? 'active' : undefined)}
                       onClick={close}
                     >
@@ -176,7 +181,7 @@ export function Layout() {
             ) : (
               <NavLink
                 key={item.to}
-                to={item.to}
+                href={item.to}
                 end={item.to === '/'}
                 className={({ isActive }) => (isActive ? 'active' : undefined)}
                 onClick={close}
@@ -195,7 +200,7 @@ export function Layout() {
       </header>
 
       <main className="site-main">
-        <Outlet />
+        {children}
         <PageMotion />
       </main>
 
@@ -219,11 +224,11 @@ export function Layout() {
             <div>
               <div className="footer-col-title">Pages</div>
               <div className="footer-links">
-                <Link to="/">Home</Link>
-                <Link to="/about">About Us</Link>
-                <Link to="/ce-mark">CE Mark</Link>
+                <Link href="/">Home</Link>
+                <Link href="/about">About Us</Link>
+                <Link href="/ce-mark">CE Mark</Link>
                 {TRAINING_LINKS.map((link) => (
-                  <Link key={link.to} to={link.to}>
+                  <Link key={link.to} href={link.to}>
                     {link.label}
                   </Link>
                 ))}
@@ -233,10 +238,10 @@ export function Layout() {
             <div>
               <div className="footer-col-title">Trainings</div>
               <div className="footer-links">
-                <Link to="/robotic-welding-course">Robotic Welding Course</Link>
-                <Link to="/welding-training-courses">Welding Training Courses</Link>
-                <Link to="/plumbing-training">Plumbing Training</Link>
-                <Link to="/ce-mark">CE Mark Certification</Link>
+                <Link href="/robotic-welding-course">Robotic Welding Course</Link>
+                <Link href="/welding-training-courses">Welding Training Courses</Link>
+                <Link href="/plumbing-training">Plumbing Training</Link>
+                <Link href="/ce-mark">CE Mark Certification</Link>
               </div>
             </div>
           </div>
@@ -245,7 +250,7 @@ export function Layout() {
               © {new Date().getFullYear()} Eurotech Assessment And Certification
               Services PVT LTD. All Rights Reserved.
             </span>
-            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
           </div>
         </div>
       </footer>

@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { SERVICE_PAGES } from '../data/services'
 
 type CrossLinksProps = {
@@ -15,7 +17,7 @@ export function CrossLinks({ currentPath }: CrossLinksProps) {
         <h2>Explore other Eurotech services</h2>
         <p>
           Move between programs anytime, or{' '}
-          <Link to="/" className="text-link">
+          <Link href="/" className="text-link">
             return home
           </Link>{' '}
           for a full overview.
@@ -24,7 +26,7 @@ export function CrossLinks({ currentPath }: CrossLinksProps) {
 
       <div className="program-cards program-cards-cross">
         {others.map((page, index) => (
-          <Link key={page.to} to={page.to} className="program-card">
+          <Link key={page.to} href={page.to} className="program-card">
             <div
               className="program-card-media"
               style={{ backgroundImage: `url('${page.image}')` }}

@@ -1,3 +1,5 @@
+'use client'
+
 import { ServiceEnquire } from '../components/ServiceEnquire'
 import { Seo } from '../components/Seo'
 import { CONTACT } from '../data/services'

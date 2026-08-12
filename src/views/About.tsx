@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { ProofBar } from '../components/ProofBar'
 import { ServiceEnquire } from '../components/ServiceEnquire'
 import { Seo } from '../components/Seo'
@@ -101,7 +103,7 @@ export function About() {
               <a className="btn btn-primary" href="#enquire">
                 Talk to our team
               </a>
-              <Link className="btn btn-outline" to="/">
+              <Link className="btn btn-outline" href="/">
                 View programs
               </Link>
             </div>
@@ -228,10 +230,10 @@ export function About() {
               <li>CE Mark certification for EU market access</li>
             </ul>
             <div className="hero-actions" style={{ marginTop: '1.25rem' }}>
-              <Link className="btn btn-primary" to="/ce-mark">
+              <Link className="btn btn-primary" href="/ce-mark">
                 Explore CE Mark
               </Link>
-              <Link className="btn btn-outline" to="/robotic-welding-course">
+              <Link className="btn btn-outline" href="/robotic-welding-course">
                 Explore trainings
               </Link>
             </div>

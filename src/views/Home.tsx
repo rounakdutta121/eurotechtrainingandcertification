@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from 'next/link'
 import { LeadForm } from '../components/LeadForm'
 import { Seo } from '../components/Seo'
 import { SERVICE_PAGES } from '../data/services'
@@ -105,7 +107,7 @@ export function Home() {
 
         <div className="program-cards">
           {SERVICE_PAGES.map((page, index) => (
-            <Link key={page.to} to={page.to} className="program-card">
+            <Link key={page.to} href={page.to} className="program-card">
               <div
                 className="program-card-media"
                 style={{ backgroundImage: `url('${page.image}')` }}

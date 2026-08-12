@@ -1,5 +1,7 @@
+'use client'
+
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { usePathname } from 'next/navigation'
 
 const SELECTOR = [
   '.site-main section',
@@ -195,7 +197,7 @@ function runReveal(targets: HTMLElement[]) {
 }
 
 export function PageMotion() {
-  const location = useLocation()
+  const pathname = usePathname()
 
   useEffect(() => {
     const main = document.querySelector('.site-main')
@@ -238,7 +240,7 @@ export function PageMotion() {
         el.style.removeProperty('--anim-delay')
       }
     }
-  }, [location.pathname])
+  }, [pathname])
 
   return null
 }

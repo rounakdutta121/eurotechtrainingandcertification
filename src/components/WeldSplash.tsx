@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 
 const WELD_PATH = 'M48 148 L672 148'
@@ -5,16 +7,18 @@ const WELD_PATH = 'M48 148 L672 148'
 type Phase = 'run' | 'exit' | 'done'
 
 function prefersReducedMotion() {
+  if (typeof window === 'undefined') return false
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
 export function WeldSplash() {
-  const [phase, setPhase] = useState<Phase>(() =>
-    prefersReducedMotion() ? 'done' : 'run',
-  )
+  const [phase, setPhase] = useState<Phase>('run')
 
   useEffect(() => {
-    if (phase !== 'run') return
+    if (prefersReducedMotion()) {
+      setPhase('done')
+      return
+    }
 
     document.documentElement.classList.add('splash-lock')
 
@@ -26,7 +30,7 @@ export function WeldSplash() {
       window.clearTimeout(doneTimer)
       document.documentElement.classList.remove('splash-lock')
     }
-  }, [phase])
+  }, [])
 
   useEffect(() => {
     if (phase === 'done') {

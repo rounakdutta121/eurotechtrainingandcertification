@@ -1,11 +1,13 @@
+'use client'
+
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { usePathname } from 'next/navigation'
 import { CONTACT } from '../data/services'
 
 const PLUMBING_WHATSAPP = 'https://wa.me/919056742701'
 
 export function FloatingActions() {
-  const { pathname } = useLocation()
+  const pathname = usePathname()
   const [showTop, setShowTop] = useState(false)
   const whatsappHref =
     pathname === '/plumbing-training' ? PLUMBING_WHATSAPP : CONTACT.whatsappHref
