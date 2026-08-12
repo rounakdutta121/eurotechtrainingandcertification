@@ -3191,9 +3191,8 @@ button.dir-row {
   }
 }
 
-.ce-trust-band {
-  background: var(--proof);
-  border-bottom: 1px solid var(--line);
+.ce-page #categories {
+  scroll-margin-top: calc(var(--header-h) + 12px);
 }
 
 .ce-trust-label {

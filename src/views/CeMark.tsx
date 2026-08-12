@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ProofBar } from '../components/ProofBar'
 import { ServiceEnquire } from '../components/ServiceEnquire'
 import { Seo } from '../components/Seo'
@@ -53,6 +53,7 @@ export function CeMark() {
   )
   const [showAllCategories, setShowAllCategories] = useState(false)
   const [isMobileCategories, setIsMobileCategories] = useState(false)
+  const shouldFocusCategories = useRef(false)
 
   useEffect(() => {
     const media = window.matchMedia('(max-width: 639px)')
@@ -77,6 +78,28 @@ export function CeMark() {
     }, 40)
     return () => window.clearTimeout(timer)
   }, [selectedCategory, showAllCategories, visibleCategories.length])
+
+  useEffect(() => {
+    if (!shouldFocusCategories.current) return
+    shouldFocusCategories.current = false
+    const timer = window.setTimeout(() => {
+      document.getElementById('categories')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+    }, 60)
+    return () => window.clearTimeout(timer)
+  }, [selectedCategory])
+
+  const openCategory = (item: CeCategory) => {
+    shouldFocusCategories.current = true
+    setSelectedCategory(item)
+  }
+
+  const closeCategory = () => {
+    shouldFocusCategories.current = true
+    setSelectedCategory(null)
+  }
 
   return (
     <div className="ce-page">
@@ -227,7 +250,7 @@ export function CeMark() {
               <button
                 type="button"
                 className="industry-back"
-                onClick={() => setSelectedCategory(null)}
+                onClick={closeCategory}
               >
                 ← Back to categories
               </button>
@@ -285,7 +308,7 @@ export function CeMark() {
                     type="button"
                     className="ce-category-card"
                     key={item.id}
-                    onClick={() => setSelectedCategory(item)}
+                    onClick={() => openCategory(item)}
                   >
                     <div
                       className="ce-category-card-media"
